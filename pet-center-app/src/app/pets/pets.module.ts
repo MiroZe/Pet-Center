@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { PetsRoutingModule } from './pets-routing-module';
 
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { MaterialModule } from '../material/material/material.module';
 
 
 
@@ -22,6 +23,7 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
   imports: [
     CommonModule,
     RouterModule,
+    MaterialModule
     
   ], exports: [PetsRoutingModule]
 })
