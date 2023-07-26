@@ -1,0 +1,55 @@
+/* Center the welcome content horizontally and vertically */
+#welcome {
+     display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background-color: #01579b;
+  color: #fff;
+  
+  
+  }
+  
+  .welcome-content {
+    text-align: center;
+  }
+  
+  .image-container {
+    margin-bottom: 20px;
+  }
+  
+  .welcome-image {
+    width: 400px;
+    height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  border-radius: 50%; /* Add rounded corners to the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Add a smooth transition effect on hover */
+  }
+
+  .welcome-image:hover {
+    transform: scale(1.1); /* Zoom in the image on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase the shadow size on hover */
+  }
+  
+  .welcome-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #0288d1;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #01579b;
+  }

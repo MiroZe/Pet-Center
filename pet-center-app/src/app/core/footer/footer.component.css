@@ -1,0 +1,36 @@
+.app-footer {
+    background-color: #03a9f4; /* Change the background color as per your design */
+    color: #fff; /* Change the text color to white or as per your design */
+    padding: 20px 16px;
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the content horizontally */
+  }
+  
+  .footer-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .social-icons {
+    display: flex;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 16px;
+    font-size: 24px;
+  }
+  
+  .footer-right p {
+    margin: 0;
+  }

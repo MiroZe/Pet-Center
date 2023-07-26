@@ -1,0 +1,33 @@
+.pet-center-header {
+    background-color: #03a9f4; /* Change the background color as per your design */
+    color: #fff; /* Change the text color to white or as per your design */
+    height: 80px; /* Increase the header height as needed */
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    height: 100%; /* Ensure the content takes full height of the header */
+  }
+  
+  .logo-container img {
+    height: 50px; /* Change the height of the logo as needed */
+    width: auto; /* Maintain aspect ratio */
+  }
+  
+  .menu-container a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 16px;
+    padding: 8px 16px; /* Add some padding to the buttons for better appearance */
+    border-radius: 4px; /* Round the corners of the buttons */
+    transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect for hover */
+    cursor: pointer; /* Set the cursor to a pointer on hover */
+  }
+  
+  .menu-container a:hover {
+    background-color: #0288d1; /* Change the background color of the button on hover */
+    color: #fff; /* Change the text color of the button on hover */
+  }
