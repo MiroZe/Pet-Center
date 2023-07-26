@@ -1,0 +1,10 @@
+app-header {
+    flex-shrink: 0;
+  }
+  
+  router-outlet {
+    flex: 1;
+  }
+
+
+ 

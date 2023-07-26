@@ -1,11 +1,21 @@
 .app-footer {
     background-color: #03a9f4; /* Change the background color as per your design */
     color: #fff; /* Change the text color to white or as per your design */
-    padding: 20px 16px;
+   
+        position: fixed; /* Фиксирано позициониране на футъра */
+        bottom: 0; /* Поставете футъра в долния край на страницата */
+        left: 0;
+        width: 100%; /* Задайте ширина на футъра да бъде същата като на viewport */
+        
+        padding: 20px; /* Добавете желано вътрешно отстояние на футъра */
+        z-index: 1;
+        border: none;
+        margin-bottom: 0px;
+        flex-shrink: 0
+      
+   
     
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+ 
   }
   
   .footer-content {
