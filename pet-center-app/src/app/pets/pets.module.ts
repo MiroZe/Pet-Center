@@ -1,26 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewAnnouncementComponent } from './new-announcement/new-announcement.component';
+import { NewPetComponent } from './new-pet/new-pet';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyAnnouncementsComponent } from './my-announcements/my-announcements.component';
 import { RouterModule } from '@angular/router';
 import { PetsRoutingModule } from './pets-routing-module';
-import { MaterialModule } from '../material/material/material.module';
+
+import { PetDetailsComponent } from './pet-details/pet-details.component';
 
 
 
 @NgModule({
   declarations: [
-    NewAnnouncementComponent,
+    NewPetComponent,
     DashboardComponent,
     MyFavoritesComponent,
-    MyAnnouncementsComponent
+    MyAnnouncementsComponent,
+    PetDetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    
   ], exports: [PetsRoutingModule]
 })
 export class PetsModule { }

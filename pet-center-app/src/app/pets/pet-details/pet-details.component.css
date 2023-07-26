@@ -1,0 +1,71 @@
+
+
+
+  .pet-details-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .pet-image img {
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pet-info {
+    flex: 1; /* Allow the pet-info to grow and take remaining space */
+  }
+  
+  .pet-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .pet-info p {
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .pet-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px; /* Add margin to separate the buttons from the pet-info */
+  }
+  
+  .pet-actions button {
+    padding: 10px 20px;
+   
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* You can add more specific styles for different buttons if needed */
+  .edit-button {
+    background-color: #28a745; /* Green color for edit button */
+  }
+  
+  .delete-button {
+    background-color: #dc3545; /* Red color for delete button */
+  }
+  
+  .engaged-button {
+    background-color: #ffc107; /* Yellow color for engaged button */
+  }
+  
+  .add-to-favorite-button {
+    background-color: #17a2b8; /* Blue color for add to favorite button */
+  }
+
+  .details-description {
+   font-size: 21px;
+    color: #0288d1;
+  }
+  
+  
