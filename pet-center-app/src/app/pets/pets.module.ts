@@ -6,6 +6,7 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyAnnouncementsComponent } from './my-announcements/my-announcements.component';
 import { RouterModule } from '@angular/router';
 import { PetsRoutingModule } from './pets-routing-module';
+import { MaterialModule } from '../material/material/material.module';
 
 
 
@@ -17,7 +18,9 @@ import { PetsRoutingModule } from './pets-routing-module';
     MyAnnouncementsComponent
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,
+    RouterModule,
+    MaterialModule
   ], exports: [PetsRoutingModule]
 })
 export class PetsModule { }

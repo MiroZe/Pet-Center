@@ -6,7 +6,7 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyAnnouncementsComponent } from './my-announcements/my-announcements.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'new-announcement', component: NewAnnouncementComponent },
   { path: 'my-favorites', component: MyFavoritesComponent },
   { path: 'my-announcements', component: MyAnnouncementsComponent },

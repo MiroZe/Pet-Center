@@ -1,0 +1,96 @@
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Initially set to transparent */
+  transition: opacity 0.3s ease; /* Add a transition effect */
+}
+
+.overlay a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background-color: #03a9f4;
+  transition: background-color 0.3s;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.card:hover .overlay a {
+  background-color: #0288d1;
+}
+
+.card-info {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.card-info h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin: 0;
+}
+
+.card-info p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+  .dog {
+    background-color: #01579b;
+  }
+  .cat {
+    background-color: #0288d1;
+  }
+  
+
+  .card-info .variable {
+    color: #01579b; /* or any color you prefer */
+  }
