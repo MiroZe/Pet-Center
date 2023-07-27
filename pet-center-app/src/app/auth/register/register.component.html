@@ -1,23 +1,36 @@
 <div class="container">
-    <form class="register-form">
-      <h2>Register</h2>
-      <div class="input-container">
-        <i class="material-icons">person</i>
-        <input type="text" placeholder="Username" required>
-      </div>
-      <div class="input-container">
-        <i class="material-icons">mail</i>
-        <input type="email" placeholder="Email" required>
-      </div>
-      <div class="input-container">
-        <i class="material-icons">lock</i>
-        <input type="password" placeholder="Password" required>
-      </div>
-      <div class="input-container">
-        <i class="material-icons">lock</i>
-        <input type="password" placeholder="Confirm Password" required>
-      </div>
-      <button type="submit">Register</button>
-    </form>
-  </div>
-  
+  <form class="register-form" [formGroup]="registerForm">
+    <h2>Register</h2>
+    <div class="input-container">
+      <i class="material-icons">person</i>
+      <input type="text" placeholder="Username" name="username" formControlName="username" required />
+    </div>
+    
+    <div class="input-container">
+      <i class="material-icons">mail</i>
+      <input type="email" placeholder="Email" name="email" formControlName="email" required />
+    </div>
+    <div class="input-container">
+      <i class="material-icons">call</i>
+      <input type="number" placeholder="tel"  name="tel" formControlName="tel" required />
+    </div>
+    <div class="input-container">
+      <i class="material-icons">pin_drop</i>
+      <input type="text" placeholder="Location" name="location" formControlName="location" required />
+    </div>
+
+    <ng-container formGroupName = "passGroup">
+
+    <div class="input-container">
+      <i class="material-icons">lock</i>
+      <input type="password" placeholder="Password" name="password" formControlName="password" required />
+    </div>
+
+    <div class="input-container">
+      <i class="material-icons">lock</i>
+      <input type="password" placeholder="Confirm Password" name="rePassword" formControlName="rePassword"  required />
+    </div>
+  </ng-container>
+    <button [disabled]="registerForm.invalid">Register</button>
+  </form>
+</div>

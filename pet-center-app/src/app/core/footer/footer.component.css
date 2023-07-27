@@ -7,11 +7,12 @@
         left: 0;
         width: 100%; /* Задайте ширина на футъра да бъде същата като на viewport */
         
-        padding: 20px; /* Добавете желано вътрешно отстояние на футъра */
+        padding: 5px; /* Добавете желано вътрешно отстояние на футъра */
         z-index: 1;
         border: none;
         margin-bottom: 0px;
-        flex-shrink: 0
+        flex-shrink: 0;
+        
       
    
     
@@ -23,24 +24,8 @@
     justify-content: space-between;
     max-width: 1200px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the content horizontally */
+    align-content: center;
+    padding-top: 10px;
   }
   
-  .footer-left {
-    display: flex;
-    align-items: center;
-  }
   
-  .social-icons {
-    display: flex;
-  }
-  
-  .social-icons a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 16px;
-    font-size: 24px;
-  }
-  
-  .footer-right p {
-    margin: 0;
-  }
