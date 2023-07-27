@@ -12,19 +12,27 @@ export class RegisterComponent {
   registerForm = this.fb.group({
     username: ['', [Validators.required, Validators.minLength(5)]],
     email: ['', [Validators.required] ],
-    tel: ['',[Validators.minLength(9)] ],
-    location: ['',[Validators.required] ],
-    passGroup: this.fb.group({
+    tel: [''] ,
+    location: ['',[Validators.required, Validators.minLength(3)] ],
+    passGroup: this.fb.group(
+      {
       password: ['',[Validators.required,Validators.minLength(5)] ],
-      rePassword: ['', [Validators.required]]
+      rePassword: ['',[Validators.required]]
     },
-    {validators : [matchPasswordValidator('password', 'rePassword')]})
+    {
+      validators : [matchPasswordValidator('password', 'rePassword')]
+    }
+    )
   })
 
 
   constructor( private fb: FormBuilder) {}
 
-
+registerHandler() {
+  console.log(this.registerForm.value); // Check the form values
+  console.log(this.registerForm.get('passGroup')?.errors?.['matchPasswordsValidator']); // Check the error object
+  
+}
 
 
 }

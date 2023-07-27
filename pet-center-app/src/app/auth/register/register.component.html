@@ -1,36 +1,91 @@
 <div class="container">
-  <form class="register-form" [formGroup]="registerForm">
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="registerHandler()">
     <h2>Register</h2>
     <div class="input-container">
       <i class="material-icons">person</i>
-      <input type="text" placeholder="Username" name="username" formControlName="username" required />
+      <input type="text" placeholder="Username" name="username" formControlName="username"  />
     </div>
-    
+
+    <ng-container *ngIf="registerForm.get('username')?.touched" class="error" >
+      <p *ngIf="registerForm.get('username')?.errors?.['required'] "class="error">
+        Username is required!
+    </p>
+
+    <p *ngIf="registerForm.get('username')?.errors?.['minlength'] "class="error">
+      Username should be 5 chatacters at least!
+  </p>
+    </ng-container>
+   
     <div class="input-container">
       <i class="material-icons">mail</i>
-      <input type="email" placeholder="Email" name="email" formControlName="email" required />
+      <input type="email" placeholder="Email" name="email" formControlName="email"  />
     </div>
+    <ng-container *ngIf="registerForm.get('email')?.touched"class="error">
+      <p *ngIf="registerForm.get('email')?.errors?.['required'] "class="error">
+        Email is required!
+    </p>
+
+    
+    </ng-container>
+   
     <div class="input-container">
       <i class="material-icons">call</i>
       <input type="number" placeholder="tel"  name="tel" formControlName="tel" required />
     </div>
     <div class="input-container">
       <i class="material-icons">pin_drop</i>
-      <input type="text" placeholder="Location" name="location" formControlName="location" required />
+      <input type="text" placeholder="Location" name="location" formControlName="location"  />
     </div>
+    <ng-container *ngIf="registerForm.get('location')?.touched"class="error">
+      <p *ngIf="registerForm.get('location')?.errors?.['required'] "class="error">
+        Location is required!
+    </p>
+    <p *ngIf="registerForm.get('location')?.errors?.['minlength'] "class="error">
+      Location should be 3 characters long at least!
+  </p>
 
-    <ng-container formGroupName = "passGroup">
+    <p *ngIf="registerForm.get('location')?.errors?.['minlength'] "class="error">
+      Location should be 5 chatacters at least!
+  </p>
+    </ng-container>
+
+    <ng-container formGroupName="passGroup">
 
     <div class="input-container">
       <i class="material-icons">lock</i>
-      <input type="password" placeholder="Password" name="password" formControlName="password" required />
+      <input type="password" placeholder="Password" name="password" formControlName="password"  />
     </div>
 
-    <div class="input-container">
-      <i class="material-icons">lock</i>
-      <input type="password" placeholder="Confirm Password" name="rePassword" formControlName="rePassword"  required />
-    </div>
+    
+    <ng-container *ngIf="registerForm.get('passGroup')?.get('password')?.touched">
+
+      <p class="error" *ngIf="registerForm.get('passGroup')?.get('password')?.errors?.['required']">
+         Password is required!
+     </p>
+     <p class="error" *ngIf="registerForm.get('passGroup')?.get('password')?.errors?.['minlength']">
+         Password must be at least 5 characters!
+     </p> 
   </ng-container>
-    <button [disabled]="registerForm.invalid">Register</button>
+
+
+    <div class="input-container">
+      <i class="material-icons">lock</i>
+      <input type="password" placeholder="Confirm Password" name="rePassword" formControlName="rePassword"/>
+    </div>
+
+    <ng-container *ngIf="registerForm.get('passGroup')?.get('rePassword')?.touched">
+      
+      <p *ngIf="registerForm.get('passGroup')?.errors?.['matchPasswordValidator']" class="error">
+        Confirmation password and password are not equal!
+      </p>
+
+     
+    </ng-container>
+      
+ 
+
+  </ng-container>
+  {{registerForm.get('passGroup')?.get('rePassword')?.errors | json}}
+    <button >Register</button>
   </form>
 </div>
