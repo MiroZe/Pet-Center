@@ -31,3 +31,12 @@
     background-color: #0288d1; /* Change the background color of the button on hover */
     color: #fff; /* Change the text color of the button on hover */
   }
+
+  .logo {
+    width: 400px; /* Adjust the logo width as needed */
+    height: auto;
+  }
+  .logo img:hover{
+    cursor: pointer;
+    
+  }
