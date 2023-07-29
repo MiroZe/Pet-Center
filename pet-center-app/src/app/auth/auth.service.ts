@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, EMPTY, Observable, catchError, tap } from 'rxjs';
+import { BehaviorSubject, EMPTY, Observable, catchError, map, tap } from 'rxjs';
 import { IUser } from '../interfaces/user';
 
 @Injectable({
@@ -11,13 +11,12 @@ export class AuthService {
 
   user : IUser | undefined
 
-  get currentUser() : boolean {
-    return !!this.user
-  }
+  
 
 
   private user$$ = new BehaviorSubject<IUser | undefined>(undefined);
-  user$ = this.user$$.asObservable()
+  user$ = this.user$$.asObservable();
+  isUserLoggedIn = this.user$.pipe(map(user => !!user))
 
   constructor(private http: HttpClient) { }
 
