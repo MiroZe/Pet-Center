@@ -24,6 +24,9 @@
       <p *ngIf="registerForm.get('email')?.errors?.['required'] "class="error">
         Email is required!
     </p>
+    <p *ngIf="registerForm.get('email')?.errors?.['email'] "class="error">
+      Invalid email!
+  </p>
 
     
     </ng-container>
@@ -85,7 +88,7 @@
  
 
   </ng-container>
-  {{registerForm.get('passGroup')?.get('rePassword')?.errors | json}}
-    <button >Register</button>
+  
+    <button [disabled]="registerForm.invalid">Register</button>
   </form>
 </div>
