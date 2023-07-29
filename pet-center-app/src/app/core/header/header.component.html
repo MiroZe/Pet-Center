@@ -8,14 +8,22 @@
         <!-- Add your menu items here (e.g., navigation links) -->
         <a mat-button routerLink="/">Home</a>
         <a mat-button routerLink="/pets/dashboard">Dashboard</a>
-        <a mat-button routerLink="/auth/login">Login</a>
-        <a mat-button routerLink="/auth/register">Register</a>
-        <a mat-button routerLink="/auth/logout">Logout</a>
-        <a mat-button routerLink="/pets/new-pet">Add Pet</a>
-        <a mat-button routerLink="/pets/my-pets">My Offers</a>
-        <a mat-button routerLink="/pets/my-favorites">My Favorites</a>
-        <a mat-button routerLink="/contact">Contact</a>
+
+        <ng-container *ngIf="!isUser">
+
+          <a  mat-button routerLink="/auth/login">Login</a>
+          <a mat-button routerLink="/auth/register">Register</a>
+        </ng-container>
+        <ng-container *ngIf="isUser">
+
+          <a mat-button routerLink="/pets/new-pet">Add Pet</a>
+          <a mat-button routerLink="/pets/my-pets">My Offers</a>
+          <a mat-button routerLink="/pets/my-favorites">My Favorites</a>
+          <a mat-button routerLink="/auth/logout">Logout</a>
+        </ng-container>
+        <a mat-button routerLink="/contact">Contacts</a>
       </div>
+      
     </div>
   </header>
   
