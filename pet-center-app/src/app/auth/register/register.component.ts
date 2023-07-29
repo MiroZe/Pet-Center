@@ -35,7 +35,10 @@ registerHandler() {
   console.log(this.registerForm.value);
   
 
+  
   const {username, email, location, passGroup: {password, rePassword} ={}, tel} = this.registerForm.value
+  
+  
   this.authService.register$(username!, email!, location!,password!,rePassword!, tel || undefined )
   .subscribe(()=> this.router.navigate(['/']))
   

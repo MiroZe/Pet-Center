@@ -38,13 +38,20 @@ export class AuthService {
   }
 
 
-  register$(username:string, email:string, password:string, rePassword: string, location: string,tel?: string) :Observable<IUser> {
+  register$(username:string, email:string, location: string,password:string, rePassword: string, tel?: string) :Observable<IUser> {
     return this.http.post<IUser>('/api/register', {username,email,location, password,rePassword, tel})
-    .pipe(tap(user=> this.user$$.next(user)))
+    .pipe(tap(user=> {
+      console.log('from service',username,email,location, password,rePassword, tel);
+      this.user$$.next(user)}))
     }
 
   logout$ ()  {
     return this.http.post('/api/logout',{}).pipe(tap(user => this.user$$.next(undefined)))
+  }
+
+  login$ (email:string, password: string) : Observable<IUser> {
+    return this.http.post<IUser>('/api/login', {email,password}, {withCredentials:true})
+    .pipe(tap(user => this.user$$.next(user)))
   }
 
 }
