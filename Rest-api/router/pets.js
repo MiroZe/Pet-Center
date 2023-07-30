@@ -9,8 +9,8 @@ const { petController } = require('../controllers');
 router.get('/', petController.getPets);
 
 
-router.get('/:petId', petController.getPets);
-router.post('/:petId', auth(), petController.createPet);
+router.get('/:petId', petController.getOnePet);
+router.post('/create', auth(), petController.createPet);
 //router.put('/:petId', auth(), themeController.subscribe);
 
 router.delete('/:petId', auth(), petController.deletePet);
