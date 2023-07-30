@@ -6,27 +6,23 @@
   </div>
   
 
-    <div class="card-container">
+    <div class="card-container" >
     
-      <div class="card">
+      <div class="card" *ngFor="let pet of pets">
         <div class="image-container">
-          <img src="https://catbreedo.com/ezoimgfmt/www.catbreedo.com/wp-content/uploads/2020/05/Happy-republic-day-36.png?ezimgfmt=rs:380x252/rscb2/ngcb2/notWebP">
+          <img src={{pet.image}}>
           <div class="overlay">
-            <a routerLink="/pets/petsId">View Details</a>
+            <a routerLink="/pets/{{pet._id}}">View Details</a>
           </div>
         </div>
         <div class="card-info">
-          <h3>Cat</h3>
-          <p>Breed:  <span class="variable">Siamese</span></p>
-          <p>Name:  <span class="variable">Oscar</span></p>
-          <p>Location:  <span class="variable">Sofia</span></p>
+          <h3>{{pet.type | uppercase}}</h3>
+          <p>Breed:  <span class="variable">{{pet.breed}}</span></p>
+          <p>Name:  <span class="variable">{{pet.name}}</span></p>
+          <p>Location:  <span class="variable">{{pet.location}}</span></p>
         </div>
       </div>
       
-      
-     
-       
-     
     </div>
 
   

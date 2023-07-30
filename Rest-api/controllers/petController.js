@@ -5,7 +5,7 @@ const { petModel } = require('../models');
 function getPets(req, res, next) {
     petModel.find()
         .populate('userId')
-        .then(themes => res.json(themes))
+        .then(pets => res.json(pets))
         .catch(next);
 }
 

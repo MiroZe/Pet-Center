@@ -12,6 +12,7 @@ export interface IPet {
 
     _id: string;
     type: PetType;
+    breed:string
     name: string;
     image:string
     gender:PetGender;

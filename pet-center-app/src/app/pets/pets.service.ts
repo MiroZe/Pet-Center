@@ -10,7 +10,7 @@ export class PetsService {
   constructor(private http: HttpClient) {}
 
   loadAllPets$(): Observable<IPet[]> {
-    return this.http.get<IPet[]>('api/pets');
+    return this.http.get<IPet[]>('/api/pets');
   }
 
   createPet$(
