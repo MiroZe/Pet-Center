@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
+import { MessageInterceptorProvider } from './interceptors/error-handler.interceptor';
 
 
 
@@ -33,7 +34,7 @@ import { AuthService } from './auth/auth.service';
       },
       deps: [AuthService],
       multi: true
-    }],
+    }, MessageInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

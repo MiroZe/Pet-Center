@@ -40,3 +40,32 @@
     cursor: pointer;
     
   }
+
+  .error-message {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff0000; /* Red background for error message */
+    color: #fff; /* White text color */
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-size: 21px;
+    
+  }
+
+  
+  .success-message {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #07b480; /* Red background for error message */
+    color: #fff; /* White text color */
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    font-size: 21px;
+    
+  }

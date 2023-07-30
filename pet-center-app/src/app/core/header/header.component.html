@@ -25,7 +25,7 @@
         </ng-container>
         <a mat-button routerLink="/contact">Contacts</a>
       </div>
-      
     </div>
+    <div *ngIf="!!message" [ngClass]="{'error-message': hasMessage, 'success-message':!hasMessage }" >{{message}}</div>
   </header>
   
