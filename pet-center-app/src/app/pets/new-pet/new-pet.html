@@ -1,55 +1,146 @@
 <div class="container">
-    <form class="create-pet-offer-form">
+    <form class="create-pet-offer-form" [formGroup]="newPetForm" (ngSubmit)="newPetHandler()">
       <h2>Add Pet </h2>
       <div class="input-container">
         <i class="material-icons">pets</i>
-        <select name="type" required>
+        <select name="type" formControlName="type">
           <option value="" disabled selected>Select Pet Type</option>
           <option value="cat">Cat</option>
           <option value="dog">Dog</option>
         </select>
+
+        <ng-container *ngIf="newPetForm.get('type')?.touched" class="error" >
+          <p *ngIf="newPetForm.get('type')?.errors?.['required'] "class="error">
+            Please choose pet type!
+        </p>
+        </ng-container>
       </div>
       <div class="input-container">
         <i class="material-icons">category</i>
-        <input type="text" placeholder="Breed" required>
+        <input type="text" placeholder="Breed" name="breed" formControlName="breed" >
       </div>
+
+      <ng-container *ngIf="newPetForm.get('breed')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('breed')?.errors?.['required'] "class="error">
+          Breed is required!
+      </p>
+      <p *ngIf="newPetForm.get('breed')?.errors?.['minlength'] "class="error">
+        Please input 3 characters at least!
+    </p>
+      </ng-container>
+
       <div class="input-container">
         <i class="material-icons">person</i>
-        <input type="text" placeholder="Name" required>
+        <input type="text" placeholder="Name" name="name" formControlName="name">
       </div>
+
+      <ng-container *ngIf="newPetForm.get('name')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('name')?.errors?.['required'] "class="error">
+          Name is required!
+      </p>
+     
+      </ng-container>
+
       <div class="input-container">
         <i class="material-icons">image</i>
-        <input type="text" placeholder="image" required>
+        <input type="text" placeholder="imageURL" name="image" formControlName="image">
       </div>
+
+      <ng-container *ngIf="newPetForm.get('image')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('image')?.errors?.['required'] "class="error">
+          Image is required!
+      </p>
+      <p *ngIf="newPetForm.get('image')?.errors?.['pattern'] "class="error">
+        Image URL is inavlid!
+    </p>
+      </ng-container>
+
       <div class="input-container">
         <i class="material-icons">wc</i>
-        <select name="gender" required>
+        <select name="gender" name="gender" formControlName="gender">
           <option value="" disabled selected>Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
       </div>
+
+      <ng-container *ngIf="newPetForm.get('gender')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('type')?.errors?.['required'] "class="error">
+          Please choose your pet gender!
+      </p>
+      </ng-container>
+
       <div class="input-container">
         <i class="material-icons">event</i>
-        <input type="text" placeholder="Age" required>
+        <input type="number" placeholder="Age" name="age" formControlName="age">
       </div>
+
+      <ng-container *ngIf="newPetForm.get('age')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('age')?.errors?.['required'] "class="error">
+          Age is required!
+      </p>
+      <p *ngIf="newPetForm.get('age')?.errors?.['min'] "class="error">
+        Age should be positive number!
+    </p>
+    <p *ngIf="newPetForm.get('age')?.errors?.['max'] "class="error">
+     Please add age from 0 to 100!
+  </p>
+      </ng-container> 
+
       <div class="input-container">
         <i class="material-icons">location_on</i>
-        <input type="text" placeholder="Location" required>
+        <input type="text" placeholder="Location" name="location" formControlName="location">
       </div>
+
+
+      <ng-container *ngIf="newPetForm.get('location')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('location')?.errors?.['required'] "class="error">
+          Location is required!
+      </p>
+      <p *ngIf="newPetForm.get('location')?.errors?.['minlength'] "class="error">
+        Location should be 3 characters at least!
+    </p>
+      </ng-container> 
+
       <div class="input-container">
         <i class="material-icons">phone</i>
-        <input type="tel" placeholder="Telephone" required>
+        <input type="tel" placeholder="Telephone" name="tel" formControlName="tel">
       </div>
+
+
       <div class="input-container">
         <i class="material-icons">email</i>
-        <input type="email" placeholder="Email" required>
+        <input type="email" placeholder="Email" name="email" formControlName="email" >
       </div>
+
+      <ng-container *ngIf="newPetForm.get('email')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('email')?.errors?.['required'] "class="error">
+          Email is required!
+      </p>
+      <p *ngIf="newPetForm.get('email')?.errors?.['email'] "class="error">
+        Invalid email!
+    </p>
+      </ng-container> 
+
+
       <div class="input-container">
         <i class="material-icons">description</i>
-        <textarea placeholder="Description" required></textarea>
+        <textarea placeholder="Description" name="description" formControlName="description"></textarea>
       </div>
-      <button type="submit">Create Offer</button>
+
+      <ng-container *ngIf="newPetForm.get('description')?.touched" class="error" >
+        <p *ngIf="newPetForm.get('description')?.errors?.['required'] "class="error">
+         Please add some description of your pet!
+      </p>
+      <p *ngIf="newPetForm.get('description')?.errors?.['minlength'] "class="error">
+        Description should be 10 characters at least!
+    </p>
+    <p *ngIf="newPetForm.get('description')?.errors?.['maxlength'] "class="error">
+      Description is too long!
+  </p>
+      </ng-container> 
+
+      <button [disabled]="newPetForm.invalid" >Publish</button>
     </form>
   </div>
   

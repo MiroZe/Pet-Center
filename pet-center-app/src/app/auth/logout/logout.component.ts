@@ -15,7 +15,7 @@ export class LogoutComponent {
   constructor(private authService : AuthService, private router: Router, private messageDispatcher: MessageDispatcherService) {
 
     this.authService.logout$().subscribe(() => {
-      this.messageDispatcher.notifyForMessage({text: 'User has been successfuly logged out', type:MessageType.Success})
+      this.messageDispatcher.notifyForMessage({text: 'You has been successfuly logged out', type:MessageType.Success})
       this.router.navigate(['/'])
     } )
 

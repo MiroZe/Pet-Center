@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { matchPasswordValidator } from 'src/app/shared/validators/match-password-validator';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { MessageDispatcherService } from 'src/app/core/message-dispatcher.service';
+import { MessageType } from 'src/app/interfaces/messages';
 
 @Component({
   selector: 'app-register',
@@ -28,11 +30,13 @@ export class RegisterComponent {
   })
 
 
-  constructor( private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+    
+    constructor( private fb: FormBuilder, private authService: AuthService, private router: Router,  
+      private messageDispatcher: MessageDispatcherService) {}
 
 registerHandler() {
   if(this.registerForm.invalid) {return};
-  console.log(this.registerForm.value);
+
   
 
   
@@ -40,7 +44,10 @@ registerHandler() {
   
   
   this.authService.register$(username!, email!, location!,password!,rePassword!, tel || undefined )
-  .subscribe(()=> this.router.navigate(['/']))
+  .subscribe((user)=> {
+    this.messageDispatcher.notifyForMessage({text: `${user.username} has been successfuly registered`, type:MessageType.Success})
+
+    this.router.navigate(['/'])})
   
   
 }

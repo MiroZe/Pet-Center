@@ -9,6 +9,7 @@ import { PetsRoutingModule } from './pets-routing-module';
 
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MaterialModule } from '../material/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -23,7 +24,8 @@ import { MaterialModule } from '../material/material/material.module';
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
     
   ], exports: [PetsRoutingModule]
 })
