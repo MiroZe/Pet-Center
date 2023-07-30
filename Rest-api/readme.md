@@ -76,14 +76,13 @@ Code: 200
 Content: 
 ``` 
 {
-    "themes": [],
-    "posts": [],
+    "pets": [],
+    "favorites": [],
     "_id": "5f1875690916010017964978",
     "name": "John Doe",
     "email": "john@email.com",
     "username": "Johny",
-    "created_at": "2020-10-14T08:04:12.196Z",
-    "updatedAt": "2020-10-14T08:58:53.589Z"
+    
 }
 ```
 
@@ -127,8 +126,7 @@ Code: 200
 Content: 
 ``` 
 {
-    "themes": ["5f85c51996b5601b2406e5b7"],
-    "posts": ["5f86bdcde012743fe4f5b324"],
+    
     "_id": "5f1875690916010017964978",
     "name": "John Doe",
     "email": "john@email.com",
@@ -167,15 +165,15 @@ Content:
 }
 ```
 
-# Endpoints: Themes
+# Endpoints: pets
 
-* ```/themes```
-* ```/themes/:themeId```
+* ```/pets```
+* ```/pets/:petId```
 
-## Get Themes
+## Get Pets
 Returns all themes as json.
 
-### URL --> ```/themes```
+### URL --> ```/pets```
 
 ### Method --> ```GET```
 
@@ -187,13 +185,21 @@ Content:
 ``` 
 [
     {
-        "subscribers": ["5f8580d25d1da62568dd38fd"],
-        "posts": ["5f858dd2d895ad23602db9d5"],
+        
         "_id": "5f858dd2d895ad23602db9d4",
-        "themeName": "Some Theme",
-        "userId": "5f8580d25d1da62568dd38fd",
-        "created_at": "2020-10-13T11:21:54.863Z",
-        "updatedAt": "2020-10-13T11:21:54.898Z",
+        "type": "cat/dog",
+        breed : "Some breed",
+        name: "Pet`s name",
+        gender: "male/female",
+        age: "pet`s age",
+        location: "Some place",
+        tel: "telephone number",
+        email: "email fo pet`s owner",
+        description: "some description" 
+
+        
+
+        
         "__v": 0
     }
 ]
@@ -213,7 +219,7 @@ Content:
 ## Post Theme
 Creates new Theme with the first post of the author and returns the theme as json.
 
-### URL --> ```/themes```
+### URL --> ```/pets```
 
 ### Method --> ```POST```
 
@@ -221,15 +227,39 @@ Creates new Theme with the first post of the author and returns the theme as jso
 
 ```
 {
-    "themeName": "Some Theme Title",
-    "postText": "Some Post text"
+    "type": "cat/dog",
+        breed : "Some breed",
+        name: "Pet`s name",
+        gender: "male/female",
+        age: "pet`s age",
+        location: "Some place",
+        tel: "telephone number",
+        email: "email fo pet`s owner",
+        description: "some description" 
 }
 ```
 
-Required:
 
-```themeName``` : [string] -- The Title of your new Theme, which you want to create
-```postText``` : [string] -- The text of your post. This post will be append as first comment on your Theme.
+
+
+### Error Response:
+
+Code: 500 Internal Server Error
+
+Content: 
+```
+{
+    message: "Something went wrong!"
+}
+```
+
+## Details of  Pets
+Get details of a pet.
+
+### URL --> ```/pets/:petsId```
+
+### Method --> ```GET```
+
 
 ### Success Response:
 
@@ -237,16 +267,19 @@ Code: 200
 
 Content: 
 ``` 
+
 {
-    "subscribers": ["5f86c1f0a112c130e89964af"],
-    "posts": ["5f86c38abfa44331a0ff0094"],
-    "_id": "5f86c38abfa44331a0ff0093",
-    "themeName": "Some Theme Title",
-    "userId": "5f86c1f0a112c130e89964af",
-    "created_at": "2020-10-14T09:23:22.102Z",
-    "updatedAt": "2020-10-14T09:23:22.114Z",
-    "__v": 0
+    "type": "cat/dog",
+        breed : "Some breed",
+        name: "Pet`s name",
+        gender: "male/female",
+        age: "pet`s age",
+        location: "Some place",
+        tel: "telephone number",
+        email: "email fo pet`s owner",
+        description: "some description" 
 }
+
 ```
 
 ### Error Response:
@@ -260,71 +293,14 @@ Content:
 }
 ```
 
-## Create Post
-Creates new Post of the author and returns the theme as json.
 
-### URL --> ```/themes/:themeId```
+## Edit Pet
+Edit Pet if the user is the author of the post and returns the changed post.
 
-### Method --> ```POST```
-
-### Body -->
-
-```
-{
-    "postText": "Some Post text"
-}
-```
-
-### Success Response:
-
-Code: 200
-
-Content: 
-``` 
-{
-"subscribers": ["5f8580d25d1da62568dd38fd"],
-"posts": [
-    "5f85ad8f1141b13a04a9139c",
-    "5f85b2501141b13a04a9139d"
-],
-"_id": "5f858dd2d895ad23602db9d4",
-"themeName": "Some Theme",
-"userId": "5f8580d25d1da62568dd38fd",
-"created_at": "2020-10-13T11:21:54.863Z",
-"updatedAt": "2020-10-13T13:57:36.466Z",
-"__v": 0
-}
-```
-
-### Error Response:
-
-Code: 500 Internal Server Error
-
-Content: 
-```
-{
-    message: "Something went wrong!"
-}
-```
-
-# Endpoints: Posts
-
-* ```/themes/:themeId/posts/:postId```
-
-## Edit Post
-Edit Post if the user is the author of the post and returns the changed post.
-
-### URL --> ```/themes/:themeId/posts/:postId```
+### URL --> ```/pets/:petId
 
 ### Method --> ```PUT```
 
-### Body -->
-
-```
-{
-    "postText": "Changed text"
-}
-```
 
 ### Success Response:
 
@@ -333,16 +309,16 @@ Code: 200
 Content: 
 ``` 
 {
-    "likes": [],
-    "_id": "5f86c3fcbfa44331a0ff0095",
-    "text": "Changed text",
-    "userId": "5f86c1f0a112c130e89964af",
-    "themeId": "5f85c51996b5601b2406e5b7",
-    "created_at": "2020-10-14T09:25:16.203Z",
-    "updatedAt": "2020-10-14T09:31:45.021Z",
-    "__v": 0
+    "type": "cat/dog",
+        breed : "Some breed",
+        name: "Pet`s name",
+        gender: "male/female",
+        age: "pet`s age",
+        location: "Some place",
+        tel: "telephone number",
+        email: "email fo pet`s owner",
+        description: "some description" 
 }
-```
 
 ### Error Response:
 
@@ -364,10 +340,10 @@ Content:
 }
 ```
 
-## Delete Post
-Deletes Post if the user is the author of the post and returns the deleted post.
+## Delete Pet
+Deletes Poet if the user is the author of the post and returns the deleted post.
 
-### URL --> ```/themes/:themeId/posts/:postId```
+### URL --> ```/pets/:petId```
 
 ### Method --> ```DELETE```
 
@@ -378,14 +354,7 @@ Code: 200
 Content: 
 ``` 
 {
-    "likes": [],
-    "_id": "5f86c3fcbfa44331a0ff0095",
-    "text": "Changed text",
-    "userId": "5f86c1f0a112c130e89964af",
-    "themeId": "5f85c51996b5601b2406e5b7",
-    "created_at": "2020-10-14T09:25:16.203Z",
-    "updatedAt": "2020-10-14T09:33:56.595Z",
-    "__v": 0
+ 
 }
 ```
 
@@ -408,34 +377,7 @@ Content:
     message: "Something went wrong!"
 }
 ```
-## Like Post
-Adds like to the post.
 
-### URL --> ```/likes/:postId```
-
-### Method --> ```PUT```
-
-### Success Response:
-
-Code: 200
-
-Content: 
-``` 
-{
-    message: "Liked successful!"
-}
-```
-
-### Error Response:
-
-Code: 500 Internal Server Error
-
-Content: 
-```
-{
-    message: "Something went wrong!"
-}
-```
 
 
 
