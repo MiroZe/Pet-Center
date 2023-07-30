@@ -12,7 +12,7 @@ function getPets(req, res, next) {
 function getOnePet(req, res, next) {
     const { petId } = req.params;
 
-    themeModel.findById(petId)
+    petModel.findById(petId)
         .populate('owner')
         .then(pet => res.json(pet))
         .catch(next);

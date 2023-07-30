@@ -31,4 +31,11 @@ export class PetsService {
       { withCredentials: true }
     );
   }
+
+getOnePet(petId: string) :Observable <IPet> {
+  return this.http.get<IPet>(`/api/pets/${petId}`)
+
+}
+
+
 }

@@ -50,7 +50,7 @@ const petSchema = new mongoose.Schema({
     },
     owner: {
         type: ObjectId,
-        ref: "Post"
+        ref: "User"
     },
 } );
 

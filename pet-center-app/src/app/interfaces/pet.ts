@@ -1,3 +1,4 @@
+import { IUser } from "./user";
 
 export enum PetType {
     Cat = 'cat',
@@ -20,6 +21,7 @@ export interface IPet {
     location: string
     tel?: string;
     email:string;
-    description : string
+    description : string;
+    owner: IUser
     
 }

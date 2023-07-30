@@ -24,25 +24,25 @@
 
    <div class="pet-details-container">
     <div class="pet-image">
-      <img src="https://catbreedo.com/ezoimgfmt/www.catbreedo.com/wp-content/uploads/2020/05/Happy-republic-day-36.png?ezimgfmt=rs:380x252/rscb2/ngcb2/notWebP" alt="Pet Image">
+      <img src={{pet.image}} alt="Pet Image">
     </div>
     <div class="pet-info">
-      <h2>Type: <span class="details-description">Cat</span></h2>
-      <p>Breed: <span class="details-description">British</span></p>
-      <p>Name: <span class="details-description">Oscar</span></p>
-      <p>Gender: <span class="details-description">Male</span></p>
-      <p>Age:  <span class="details-description">7</span></p>
-      <p>Location: <span class="details-description">Svilengrad</span></p>
-      <p>Owner`s Telephone: <span class="details-description">08845465</span></p>
-      <p>Owner`s Email: <span class="details-description">aaaa@gmail.com</span></p>
-      <p>Description: <span class="details-description">Cute cat</span></p>
+      <h2>Type: <span class="details-description">{{pet.type}}</span></h2>
+      <p>Breed: <span class="details-description">{{pet.breed}}</span></p>
+      <p>Name: <span class="details-description">{{pet.name}}</span></p>
+      <p>Gender: <span class="details-description">{{pet.gender}}</span></p>
+      <p>Age:  <span class="details-description">{{pet.age}}</span></p>
+      <p>Location: <span class="details-description">{{pet.location}}</span></p>
+      <p>Owner`s Telephone: <span class="details-description">{{pet.tel}}</span></p>
+      <p>Owner`s Email: <span class="details-description">{{pet.email}}</span></p>
+      <p>Description: <span class="details-description">{{pet.description}}</span></p>
     </div>
   </div>
   <div class="pet-actions">
-    <button class="edit-button">Edit</button>
-    <button class="delete-button">Delete</button>
+    <button class="edit-button" *ngIf="isOwner">Edit</button>
+    <button class="delete-button" *ngIf="isOwner">Delete</button>
     <button class="engaged-button">Engaged</button>
-    <button class="add-to-favorite-button">Add to Favorite</button>
+    <button class="add-to-favorite-button" *ngIf="!isOwner">Add to Favorite</button>
   </div>
   
   
