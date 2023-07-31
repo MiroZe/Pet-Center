@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 import { IUser } from 'src/app/interfaces/user';
 import { PetsService } from '../pets.service';
 import { Router } from '@angular/router';
+import { IMAGE_PATTERN } from 'src/app/constants';
 
 @Component({
   selector: 'app-new-pet',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-pet.css'],
 })
 export class NewPetComponent implements OnInit {
-  imagePattern: string = '^https?://.+';
+
 
   currentUser!: IUser | undefined;
 
@@ -19,7 +20,7 @@ export class NewPetComponent implements OnInit {
     type: ['', [Validators.required]],
     breed: ['', [Validators.required, Validators.minLength(3)]],
     name: ['', [Validators.required]],
-    image: ['', [Validators.required, Validators.pattern(this.imagePattern)]],
+    image: ['', [Validators.required, Validators.pattern(IMAGE_PATTERN)]],
     gender: ['', [Validators.required]],
     age: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
     location: ['', [Validators.required, Validators.minLength(3)]],

@@ -34,12 +34,20 @@ function deletePet(req,res,next) {
     petModel.findByIdAndDelete(petId).then(pet => res.status(200).json(pet)).catch(next)
 }
 
+function editPet(req,res,next) {
+    const { petId } = req.params
+    const petData = req.body
+    petModel.findByIdAndUpdate(petId, petData)
+    .then(petData => res.status(200).json(petData)).catch(next)
+}
+
 
 
 module.exports = {
     getPets,
     getOnePet,
     createPet,
-    deletePet
+    deletePet,
+    editPet
     
 }

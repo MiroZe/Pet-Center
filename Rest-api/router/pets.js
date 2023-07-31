@@ -11,7 +11,7 @@ router.get('/', petController.getPets);
 
 router.get('/:petId', petController.getOnePet);
 router.post('/create', auth(), petController.createPet);
-//router.put('/:petId', auth(), themeController.subscribe);
+router.put('/:petId/edit', auth(), petController.editPet);
 
 router.delete('/:petId', auth(), petController.deletePet);
 

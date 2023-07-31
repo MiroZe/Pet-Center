@@ -10,6 +10,7 @@ import { PetsRoutingModule } from './pets-routing-module';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MaterialModule } from '../material/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
     
   ], exports: [PetsRoutingModule]
 })

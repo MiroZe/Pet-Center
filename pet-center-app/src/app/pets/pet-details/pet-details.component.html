@@ -1,32 +1,16 @@
-<!-- <div class="pet-details-container">
-    <div class="pet-image">
-      <img src="https://catbreedo.com/ezoimgfmt/www.catbreedo.com/wp-content/uploads/2020/05/Happy-republic-day-36.png?ezimgfmt=rs:380x252/rscb2/ngcb2/notWebP" alt="Pet Image">
-    </div>
-    <div class="pet-info">
-      <h2>Type: Cat</h2>
-      <p>Breed: Siamese</p>
-      <p>Name: Kitty</p>
-      <p>Gender: Female</p>
-      <p>Age: 2 years</p>
-      <p>Location: Sofia</p>
-      <p>Telephone: 123-456-7890</p>
-      <p>Email: example@example.com</p>
-      <p>Description: Some description</p>
-    </div>
-    <div class="pet-actions">
-      <button class="edit-button">Edit</button>
-      <button class="delete-button">Delete</button>
-      <button class="engaged-button">Engaged</button>
-      <button class="add-to-favorite-button">Add to Favorite</button>
-    </div>
-  </div>
-   -->
+<ng-container *ngIf="!pet">
 
+  <app-paws-loader></app-paws-loader>
+</ng-container>
+<ng-container *ngIf="(pet$ | async) as pet ">
+<ng-container *ngIf=" !isInEditMode">
    <div class="pet-details-container">
     <div class="pet-image">
       <img src={{pet.image}} alt="Pet Image">
     </div>
+    
     <div class="pet-info">
+      <button mat-button class="back" routerLink="/pets/dashboard">Back</button>
       <h2>Type: <span class="details-description">{{pet.type}}</span></h2>
       <p>Breed: <span class="details-description">{{pet.breed}}</span></p>
       <p>Name: <span class="details-description">{{pet.name}}</span></p>
@@ -37,12 +21,165 @@
       <p>Owner`s Email: <span class="details-description">{{pet.email}}</span></p>
       <p>Description: <span class="details-description">{{pet.description}}</span></p>
     </div>
+    
   </div>
   <div class="pet-actions">
-    <button class="edit-button" *ngIf="isOwner">Edit</button>
+    <button class="edit-button" *ngIf="isOwner" (click)="switchToEdit()">Edit</button>
     <button class="delete-button" *ngIf="isOwner">Delete</button>
-    <button class="engaged-button">Engaged</button>
+    <button class="engaged-button" *ngIf="isOwner">Engaged</button>
     <button class="add-to-favorite-button" *ngIf="!isOwner">Add to Favorite</button>
   </div>
+
+</ng-container>
+</ng-container>
+<ng-container *ngIf="isInEditMode">
+  <div class="container">
+  <form class="create-pet-offer-form" [formGroup]="editPetForm" (ngSubmit)="editPetHandler()">
+    <h2>Edit y Pet </h2>
+    <div class="input-container">
+      <i class="material-icons">pets</i>
+      <select name="type" formControlName="type">
+        <option value="" disabled selected>Select Pet Type</option>
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+      </select>
+
+      <ng-container *ngIf="editPetForm.get('type')?.touched" class="error" >
+        <p *ngIf="editPetForm.get('type')?.errors?.['required'] "class="error">
+          Please choose pet type!
+      </p>
+      </ng-container>
+    </div>
+    <div class="input-container">
+      <i class="material-icons">category</i>
+      <input type="text" placeholder="Breed" name="breed" formControlName="breed" >
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('breed')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('breed')?.errors?.['required'] "class="error">
+        Breed is required!
+    </p>
+    <p *ngIf="editPetForm.get('breed')?.errors?.['minlength'] "class="error">
+      Please input 3 characters at least!
+  </p>
+    </ng-container>
+
+    <div class="input-container">
+      <i class="material-icons">person</i>
+      <input type="text" placeholder="Name" name="name" formControlName="name">
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('name')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('name')?.errors?.['required'] "class="error">
+        Name is required!
+    </p>
+   
+    </ng-container>
+
+    <div class="input-container">
+      <i class="material-icons">image</i>
+      <input type="text" placeholder="imageURL" name="image" formControlName="image">
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('image')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('image')?.errors?.['required'] "class="error">
+        Image is required!
+    </p>
+    <p *ngIf="editPetForm.get('image')?.errors?.['pattern'] "class="error">
+      Image URL is inavlid!
+  </p>
+    </ng-container>
+
+    <div class="input-container">
+      <i class="material-icons">wc</i>
+      <select name="gender" name="gender" formControlName="gender">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('gender')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('type')?.errors?.['required'] "class="error">
+        Please choose your pet gender!
+    </p>
+    </ng-container>
+
+    <div class="input-container">
+      <i class="material-icons">event</i>
+      <input type="number" placeholder="Age" name="age" formControlName="age">
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('age')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('age')?.errors?.['required'] "class="error">
+        Age is required!
+    </p>
+    <p *ngIf="editPetForm.get('age')?.errors?.['min'] "class="error">
+      Age should be positive number!
+  </p>
+  <p *ngIf="editPetForm.get('age')?.errors?.['max'] "class="error">
+   Please add age from 0 to 100!
+</p>
+    </ng-container> 
+
+    <div class="input-container">
+      <i class="material-icons">location_on</i>
+      <input type="text" placeholder="Location" name="location" formControlName="location">
+    </div>
+
+
+    <ng-container *ngIf="editPetForm.get('location')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('location')?.errors?.['required'] "class="error">
+        Location is required!
+    </p>
+    <p *ngIf="editPetForm.get('location')?.errors?.['minlength'] "class="error">
+      Location should be 3 characters at least!
+  </p>
+    </ng-container> 
+
+    <div class="input-container">
+      <i class="material-icons">phone</i>
+      <input type="tel" placeholder="Telephone" name="tel" formControlName="tel">
+    </div>
+
+
+    <div class="input-container">
+      <i class="material-icons">email</i>
+      <input type="email" placeholder="Email" name="email" formControlName="email" >
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('email')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('email')?.errors?.['required'] "class="error">
+        Email is required!
+    </p>
+    <p *ngIf="editPetForm.get('email')?.errors?.['email'] "class="error">
+      Invalid email!
+  </p>
+    </ng-container> 
+
+
+    <div class="input-container">
+      <i class="material-icons">description</i>
+      <textarea placeholder="Description" name="description" formControlName="description"></textarea>
+    </div>
+
+    <ng-container *ngIf="editPetForm.get('description')?.touched" class="error" >
+      <p *ngIf="editPetForm.get('description')?.errors?.['required'] "class="error">
+       Please add some description of your pet!
+    </p>
+    <p *ngIf="editPetForm.get('description')?.errors?.['minlength'] "class="error">
+      Description should be 10 characters at least!
+  </p>
+  <p *ngIf="editPetForm.get('description')?.errors?.['maxlength'] "class="error">
+    Description is too long!
+</p>
+    </ng-container> 
+    <div class="button-container">
+      <button  (click)="toggle()">Cancel</button>
+      <button [disabled]="editPetForm.invalid" >Edit</button>
+  </div>
+  </form>
+</div>
+</ng-container>
   
   
