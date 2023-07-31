@@ -28,6 +28,7 @@ export class PetDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
     private fb: FormBuilder,
+    private router:Router
    
   ) {}
 
@@ -40,7 +41,7 @@ export class PetDetailsComponent implements OnInit {
       switchMap((params: Params) => {
         const petId = params['petId'];
         this.currentPetId = petId;
-        return this.petService.getOnePet(petId);
+        return this.petService.getOnePet$(petId);
       })
     ).subscribe((currentPet)=> {
       this.pet$$.next(currentPet)
@@ -113,7 +114,7 @@ export class PetDetailsComponent implements OnInit {
       tel,
     } = this.editPetForm.value;
 
-    this.petService.editPet(
+    this.petService.editPet$(
       this.currentPetId,
       type!,
       breed!,
@@ -126,7 +127,7 @@ export class PetDetailsComponent implements OnInit {
       description!,
       tel || undefined
     ).pipe(
-      switchMap(() => this.petService.getOnePet(this.currentPetId))
+      switchMap(() => this.petService.getOnePet$(this.currentPetId))
     ).subscribe((currentPet) => {
       this.pet$$.next(currentPet)
       this.pet = currentPet
@@ -134,6 +135,15 @@ export class PetDetailsComponent implements OnInit {
      
     });
   }
+
+  deletePetHandler() {
+
+    this.petService.deletePet$(this.currentPetId).subscribe(()=> {
+      this.router.navigate(['/pets/dashboard'])
+    })
+
+  }
+
 }
 
 

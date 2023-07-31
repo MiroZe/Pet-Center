@@ -51,14 +51,14 @@ export class PetsService {
     );
   }
 
-  getOnePet(petId: string): Observable<IPet> {
+  getOnePet$(petId: string): Observable<IPet> {
     return this.http.get<IPet>(`/api/pets/${petId}`).pipe(
       tap(pet => this.pet$$.next(pet))
     )
      
   }
 
-  editPet(
+  editPet$(
     petId: string,
     type: string,
     breed: string,
@@ -77,4 +77,16 @@ export class PetsService {
       { withCredentials: true }
     );
   }
+
+
+
+deletePet$(petId:string) {
+  return this.http.delete(`/api/pets/${petId}/delete`, { withCredentials: true })
+
+}
+
+
+
+
+
 }
