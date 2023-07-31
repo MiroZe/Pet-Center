@@ -17,8 +17,12 @@ export class PetsService {
 
 
 
-  loadAllPets$(): Observable<IPet[]> {
+  loadAllPets$(petType: string = ''): Observable<IPet[]> {
     return this.http.get<IPet[]>('/api/pets');
+  }
+
+   loadByType$(petType: string = ''): Observable<IPet[]> {
+     return this.http.get<IPet[]>(`/api/pets?type=${petType}`)
   }
 
   createPet$(

@@ -117,3 +117,6 @@
   .card-info .variable {
     color: #01579b; /* or any color you prefer */
   }
+  .all {
+    background-color: rgb(9, 105, 73);
+  }

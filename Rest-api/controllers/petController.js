@@ -2,12 +2,32 @@ const { petModel } = require('../models');
 ;
 
 
+// function getPets(req, res, next) {
+//     petModel.find()
+//         .populate('userId')
+//         .then(pets => res.json(pets))
+//         .catch(next);
+// }
+
+
+
 function getPets(req, res, next) {
-    petModel.find()
+   
+    const type = req.query['type'];
+    if(type) {
+        petModel.find({type: type})
         .populate('userId')
         .then(pets => res.json(pets))
         .catch(next);
+    } else {
+
+        petModel.find()
+            .populate('userId')
+            .then(pets => res.json(pets))
+            .catch(next);
+    }
 }
+
 
 function getOnePet(req, res, next) {
     const { petId } = req.params;
