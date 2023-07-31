@@ -13,11 +13,15 @@
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
+  margin-left: 15px
 }
 
 .card {
   background-color: #fff;
   border-radius: 8px;
+  border: 2px solid #0288d1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 
 .image-container {
@@ -117,6 +121,8 @@
   .card-info .variable {
     color: #01579b; /* or any color you prefer */
   }
-  .all {
+  /* .all {
     background-color: rgb(9, 105, 73);
-  }
+    color:white
+    
+  } */
