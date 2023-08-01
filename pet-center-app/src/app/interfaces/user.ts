@@ -6,5 +6,6 @@ export interface IUser {
     username: string;
     location: string,
     favorites: string[];
+    pets: string[];
     
 }

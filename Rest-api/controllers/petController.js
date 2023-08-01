@@ -71,6 +71,12 @@ function aggPetToFavorite(req,res,next) {
         res.status(200).json(userData)}).catch(next)
 }
 
+function getMyPets(req,res,next) {
+    const { _id: userId } = req.user;
+    petModel.find({owner:userId})
+    .then(pets => {res.status(200).json(pets)}).catch(next)
+}
+
 
 
 
@@ -80,6 +86,7 @@ module.exports = {
     createPet,
     deletePet,
     editPet,
-    aggPetToFavorite
+    aggPetToFavorite,
+    getMyPets
     
 }

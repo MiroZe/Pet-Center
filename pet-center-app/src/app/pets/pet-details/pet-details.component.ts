@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { PetsService } from '../pets.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subscription, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { IPet } from 'src/app/interfaces/pet';
 import { IUser } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -32,6 +32,7 @@ export class PetDetailsComponent implements OnInit {
     private router:Router
    
   ) {}
+  
 
   ngOnInit() {
     this.authService.user$.subscribe((user) => (this.currentUser = user));
@@ -39,25 +40,25 @@ export class PetDetailsComponent implements OnInit {
     
     
 
-
-
     this.activatedRoute.params.pipe(
       switchMap((params: Params) => {
         const petId = params['petId'];
         this.currentPetId = petId;
+        this.isAlreadySave = this.currentUser?.favorites.includes(this.currentPetId);
+        
+        
         return this.petService.getOnePet$(petId);
       })
     ).subscribe((currentPet)=> {
       this.pet$$.next(currentPet)
       this.pet = currentPet;
       this.isOwner = currentPet.owner._id === this.currentUser?._id;
-      this.isAlreadySave = this.currentUser?.favorites.includes(this.currentPetId)
     })
 
-     
-      
-    
+
   }
+
+  
 
   editPetForm = this.fb.group({
     type: ['', [Validators.required]],
@@ -152,12 +153,13 @@ export class PetDetailsComponent implements OnInit {
 
   addToFavorites() {
    
-    this.petService.addPetToFavorites$(this.currentPetId).subscribe(
-      {
-        next: (response) => console.log('Success', response)
-      }
+    this.authService.addPetToFavorites$(this.currentPetId).subscribe( ()=> {
+      if(!this.isAlreadySave) {
+        this.isAlreadySave = true
 
-     )
+      }
+    })
+     
     
   }
 

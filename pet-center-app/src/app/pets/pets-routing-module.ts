@@ -5,13 +5,14 @@ import {  NewPetComponent } from './new-pet/new-pet';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { MyAnnouncementsComponent } from './my-announcements/my-announcements.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
+import { MyPetsComponent } from './my-pets/my-pets.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'new-pet', component: NewPetComponent },
   { path: 'my-favorites', component: MyFavoritesComponent },
  
-  { path: 'my-announcements', component: MyAnnouncementsComponent },
+  { path: 'my-pets', component: MyPetsComponent },
   { path: ':petId', component: PetDetailsComponent },
 ];
 

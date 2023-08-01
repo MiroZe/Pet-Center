@@ -11,6 +11,7 @@ import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MaterialModule } from '../material/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { MyPetsComponent } from './my-pets/my-pets.component';
 
 
 
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     DashboardComponent,
     MyFavoritesComponent,
     MyAnnouncementsComponent,
-    PetDetailsComponent
+    PetDetailsComponent,
+    MyPetsComponent
   ],
   imports: [
     CommonModule,

@@ -29,6 +29,7 @@
     <button class="engaged-button" *ngIf="isOwner">Engaged</button>
     <button class="add-to-favorite-button" *ngIf="!isOwner && !isAlreadySave" (click)="addToFavorites()" >Add to Favorite</button>
   </div>
+  
   <h4 *ngIf="isAlreadySave">This pet is in your Favorite list</h4>
 
 </ng-container>

@@ -89,11 +89,8 @@ deletePet$(petId:string) {
 
 }
 
-
-addPetToFavorites$(petId: string) {
-
-return this.http.patch('/api/pets/my-favorites',{petId}, {withCredentials:true} )
-
+getMyPets$(): Observable<IPet[]> {
+  return this.http.get<IPet[]>('/api/pets/myPets');
 }
 
 

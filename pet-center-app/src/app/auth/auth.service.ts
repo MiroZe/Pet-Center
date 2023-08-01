@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, catchError, map, tap } from 'rxjs';
 import { IUser } from '../interfaces/user';
+import { IPet } from '../interfaces/pet';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class AuthService {
   }
 
   handleLogin( newUser : IUser) {
-    console.log(newUser);
+   
     
     this.user = newUser
     this.user$$.next(newUser)
@@ -40,7 +41,7 @@ export class AuthService {
   register$(username:string, email:string, location: string,password:string, rePassword: string, tel?: string) :Observable<IUser> {
     return this.http.post<IUser>('/api/register', {username,email,location, password,rePassword, tel})
     .pipe(tap(user=> {
-      console.log('from service',username,email,location, password,rePassword, tel);
+      
       this.user$$.next(user)}))
     }
 
@@ -52,5 +53,22 @@ export class AuthService {
     return this.http.post<IUser>('/api/login', {email,password}, {withCredentials:true})
     .pipe(tap(user => this.user$$.next(user)))
   }
+
+
+
+  
+addPetToFavorites$(petId: string)  {
+
+  return this.http.patch('/api/pets/my-favorites',{petId}, {withCredentials:true} ).pipe(tap(user => {
+    this.user$$.next(user as IUser)
+  }))
+  
+  }
+
+  // getMyFavorites$() :Observable<IPet[]>{
+  //   //return this.http.get<IPet[]>('/api/pets/my-pets', {withCredentials:true})
+  // }
+
+ 
 
 }
