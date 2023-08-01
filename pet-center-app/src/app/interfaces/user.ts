@@ -1,3 +1,5 @@
+
+
 export interface IUser {
 
     _id: string;
@@ -5,7 +7,9 @@ export interface IUser {
     email:string;
     username: string;
     location: string,
-    favorites: string[];
-    pets: string[];
+    favorites: string 
+    
     
 }
+
+

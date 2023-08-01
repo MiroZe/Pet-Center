@@ -25,3 +25,6 @@ export interface IPet {
     owner: IUser
     
 }
+
+
+

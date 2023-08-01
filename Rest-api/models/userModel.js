@@ -42,15 +42,10 @@ const userSchema = new mongoose.Schema({
   tel: {
     type: String,
   },
-  pets: {
-    type: [ObjectId],
-    ref: "Pet",
-  },
-
-  favorites: {
-    type: [ObjectId],
-    ref: "Pet",
-  },
+  favorites: [{
+    type: ObjectId,
+    ref: "Pet"
+  }],
 });
 
 userSchema.methods = {

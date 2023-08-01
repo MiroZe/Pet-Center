@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
-import { IPet } from 'src/app/interfaces/pet';
+
+import { PetsService } from '../pets.service';
+
 
 @Component({
   selector: 'app-my-favorites',
@@ -11,10 +13,14 @@ export class MyFavoritesComponent implements OnInit{
  
 
 
-  // pets!: IPet[]
-  // constructor(private authService: AuthService){}
+   pets! : any
+   constructor(private petService: PetsService){}
    ngOnInit(): void {
-  //   this.authService.getMyFavorites$()
-  //   .subscribe((pets) => this.pets = pets)
+    this.petService.getMyFavorites$()
+    .subscribe((pets ) => {
+      this.pets = pets
+      console.log(this.pets.favorites);
+      
+    })
    }
 }

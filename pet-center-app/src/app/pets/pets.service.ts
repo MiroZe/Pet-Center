@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPet } from '../interfaces/pet';
-import { BehaviorSubject, Observable, Subject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -91,6 +92,10 @@ deletePet$(petId:string) {
 
 getMyPets$(): Observable<IPet[]> {
   return this.http.get<IPet[]>('/api/pets/myPets');
+}
+
+getMyFavorites$(){
+  return this.http.get('/api/pets/my-favorites')
 }
 
 

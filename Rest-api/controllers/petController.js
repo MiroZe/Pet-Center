@@ -77,6 +77,17 @@ function getMyPets(req,res,next) {
     .then(pets => {res.status(200).json(pets)}).catch(next)
 }
 
+function getMyFavoritePets(req,res,next) {
+    const { _id: userId } = req.user;
+    
+    
+    userModel.findById(userId).populate('favorites')
+    .then((favorites) => {
+      res.status(200).json(favorites);
+    })
+    .catch(next);
+}
+
 
 
 
@@ -87,6 +98,7 @@ module.exports = {
     deletePet,
     editPet,
     aggPetToFavorite,
-    getMyPets
+    getMyPets,
+    getMyFavoritePets
     
 }
