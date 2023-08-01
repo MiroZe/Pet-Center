@@ -4,7 +4,7 @@
   </ng-container>
 
 
-  <ng-container *ngIf="pets">
+  <ng-container *ngIf="pets && pets.length > 0">
 
     <div class="card-container" >
     
@@ -23,6 +23,14 @@
           </div>
         </div>
         
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="pets && pets.length <= 0">
+      <div class="no-content">
+        <img src="/assets/worryDog.png" alt="No Publications">
+        <h1>You don't have any publications yet!</h1>
+        <button mat-raised-button routerLink="/pets/dashboard">Back to Dashboard</button>
       </div>
     </ng-container>
 

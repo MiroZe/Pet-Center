@@ -6,9 +6,12 @@
           <img src="assets/logo.png" alt="Pet Center Logo">
         </div>
       </div>
+      <div>
+        <p>Welcome to Pet Center, dear {{ user? user.username : 'Guest' }}</p>
+      </div>
       <div class="menu-container">
         
-        <a mat-button routerLink="/">Home</a>
+       
         <a mat-button routerLink="/pets/dashboard">Dashboard</a>
 
         <ng-container *ngIf="!(isLoggedIn$ | async)" >

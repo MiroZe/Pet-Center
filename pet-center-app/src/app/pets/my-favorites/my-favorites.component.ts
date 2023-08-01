@@ -19,7 +19,7 @@ export class MyFavoritesComponent implements OnInit{
     this.petService.getMyFavorites$()
     .subscribe((pets ) => {
       this.pets = pets
-      console.log(this.pets.favorites);
+     
       
     })
    }

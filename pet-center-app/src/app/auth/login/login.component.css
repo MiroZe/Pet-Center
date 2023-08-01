@@ -1,7 +1,7 @@
 .container {
     background-color: #fff;
     border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   
     padding: 20px;
     width: 400px; /* Increase the container width */
     margin: 0 auto; /* Center the container horizontally */
@@ -69,4 +69,20 @@
 .ng-invalid {
     border-left-color: red;
 } 
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  padding: auto;
+}
+
+/* Styles for the image */
+.image-container img {
+  width: 200px; /* Set the width of the image as per your design */
+  height: auto; /* Maintain the aspect ratio of the image */
+  
+  
+}
   

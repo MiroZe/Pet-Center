@@ -4,6 +4,7 @@ app-header {
   
   router-outlet {
     flex: 1;
+    
   }
 
 

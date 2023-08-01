@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
 import { MessageDispatcherService } from '../message-dispatcher.service';
 import { MessageType } from 'src/app/interfaces/messages';
+import { IUser } from 'src/app/interfaces/user';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class HeaderComponent implements OnInit, OnDestroy{
 
   private subscription! : Subscription;
   message: string = '';
-  hasMessage!: boolean
+  hasMessage!: boolean;
+  user :IUser | undefined
   
 
   isLoggedIn$: Observable<boolean> = this.authService.isUserLoggedIn;
@@ -40,6 +42,8 @@ ngOnInit(): void {
     }
 
   )
+
+  this.authService.user$.subscribe((user)=>this.user = user )
 }
 
 ngOnDestroy(): void {
