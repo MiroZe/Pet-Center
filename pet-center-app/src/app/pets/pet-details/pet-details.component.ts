@@ -20,7 +20,8 @@ export class PetDetailsComponent implements OnInit {
   isInEditMode: boolean = false;
   currentPetId!: string;
   private pet$$  = new BehaviorSubject<IPet | undefined>(undefined);
-  pet$ = this.pet$$.asObservable()
+  pet$ = this.pet$$.asObservable();
+  isAlreadySave:boolean | undefined ;
   
   
   constructor(
@@ -34,6 +35,9 @@ export class PetDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user$.subscribe((user) => (this.currentUser = user));
+    
+    
+    
 
 
 
@@ -47,6 +51,7 @@ export class PetDetailsComponent implements OnInit {
       this.pet$$.next(currentPet)
       this.pet = currentPet;
       this.isOwner = currentPet.owner._id === this.currentUser?._id;
+      this.isAlreadySave = this.currentUser?.favorites.includes(this.currentPetId)
     })
 
      
@@ -142,6 +147,18 @@ export class PetDetailsComponent implements OnInit {
       this.router.navigate(['/pets/dashboard'])
     })
 
+  }
+
+
+  addToFavorites() {
+   
+    this.petService.addPetToFavorites$(this.currentPetId).subscribe(
+      {
+        next: (response) => console.log('Success', response)
+      }
+
+     )
+    
   }
 
 }

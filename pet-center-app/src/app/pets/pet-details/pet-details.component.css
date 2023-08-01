@@ -45,6 +45,11 @@
     border-radius: 4px;
     cursor: pointer;
   }
+
+  h4 {
+    margin-left: 17px;
+    color: #0288d1;
+  }
   
   /* You can add more specific styles for different buttons if needed */
   .edit-button {

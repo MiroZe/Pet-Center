@@ -90,7 +90,11 @@ deletePet$(petId:string) {
 }
 
 
+addPetToFavorites$(petId: string) {
 
+return this.http.patch('/api/pets/my-favorites',{petId}, {withCredentials:true} )
+
+}
 
 
 }

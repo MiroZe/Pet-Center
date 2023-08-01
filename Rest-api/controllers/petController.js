@@ -1,4 +1,4 @@
-const { petModel } = require('../models');
+const { petModel,userModel } = require('../models');
 ;
 
 
@@ -61,6 +61,17 @@ function editPet(req,res,next) {
     .then(petData => res.status(200).json(petData)).catch(next)
 }
 
+function aggPetToFavorite(req,res,next) {
+    const { petId } = req.body;
+    const { _id: userId } = req.user;
+
+    userModel.findByIdAndUpdate(userId, {$push: {favorites: petId}}, { new: true })
+    .then(userData => {
+        
+        res.status(200).json(userData)}).catch(next)
+}
+
+
 
 
 module.exports = {
@@ -68,6 +79,7 @@ module.exports = {
     getOnePet,
     createPet,
     deletePet,
-    editPet
+    editPet,
+    aggPetToFavorite
     
 }

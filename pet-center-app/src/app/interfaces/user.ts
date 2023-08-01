@@ -4,6 +4,7 @@ export interface IUser {
     tel?: string;
     email:string;
     username: string;
-    location: string
+    location: string,
+    favorites: string[];
     
 }
