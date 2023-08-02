@@ -3,17 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {  NewPetComponent } from './new-pet/new-pet';
 import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
-import { MyAnnouncementsComponent } from './my-announcements/my-announcements.component';
+
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'new-pet', component: NewPetComponent },
-  { path: 'my-favorites', component: MyFavoritesComponent },
+  { path: 'new-pet', component: NewPetComponent , canActivate:[AuthGuard]},
+  { path: 'my-favorites', component: MyFavoritesComponent , canActivate:[AuthGuard]},
  
-  { path: 'my-pets', component: MyPetsComponent },
-  { path: ':petId', component: PetDetailsComponent },
+  { path: 'my-pets', component: MyPetsComponent , canActivate:[AuthGuard]},
+  { path: ':petId', component: PetDetailsComponent , canActivate:[AuthGuard]},
 ];
 
 @NgModule({

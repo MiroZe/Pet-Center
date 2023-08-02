@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
+    
+    
     this.petService.loadAllPets$().subscribe(pets => this.pets = pets)
   }
 

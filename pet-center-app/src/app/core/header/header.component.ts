@@ -27,6 +27,9 @@ export class HeaderComponent implements OnInit, OnDestroy{
   }
  
 ngOnInit(): void {
+
+  
+  
   this.subscription = this.messageDispatcher.messageQ$.subscribe(
     newMessage => {
       this.message = newMessage?.text || '';
