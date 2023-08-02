@@ -14,14 +14,12 @@ export class AuthService {
 
   
 
-  get isLoggedUser () {
-    return !!this.user
-  }
+  
 
 
   private user$$ = new BehaviorSubject<IUser | undefined>(undefined);
   user$ = this.user$$.asObservable();
-  isUserLoggedIn = this.user$.pipe(map(user => !!user))
+  isUserLoggedIn$ = this.user$.pipe(map(user => !!user))
 
   constructor(private http: HttpClient) { }
 

@@ -16,7 +16,7 @@ import { MessageType } from 'src/app/interfaces/messages';
   providedIn: 'root'
 })
 
-export class AuthGuard implements CanActivate {
+export class UnAuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router ,private messageDispatcher: MessageDispatcherService) {}
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -29,14 +29,15 @@ export class AuthGuard implements CanActivate {
    
       return this.authService.isUserLoggedIn$.pipe(
         map((isUserLoggedIn) => {
-          if (isUserLoggedIn) {
+          if (!isUserLoggedIn) {
             
             
             return true; 
-
+            
           } else {
-            this.messageDispatcher.notifyForMessage({text:'You can not access this page.Please, login or register', type:MessageType.Error})
-            return this.router.createUrlTree(['/auth/login']); 
+            this.messageDispatcher.notifyForMessage({text:'You are already logged in', type:MessageType.Error})
+
+            return this.router.createUrlTree(['/']); 
           }
         })
       );

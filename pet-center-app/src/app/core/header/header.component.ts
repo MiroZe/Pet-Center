@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit, OnDestroy{
   user :IUser | undefined
   
 
-  isLoggedIn$: Observable<boolean> = this.authService.isUserLoggedIn;
+  isLoggedIn$: Observable<boolean> = this.authService.isUserLoggedIn$;
   
   constructor(public authService: AuthService, private messageDispatcher : MessageDispatcherService) {
   }
