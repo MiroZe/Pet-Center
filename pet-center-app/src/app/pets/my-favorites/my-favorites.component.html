@@ -1,29 +1,47 @@
-<ng-container *ngIf="!pets">
-
+<ng-container *ngIf="!favoritePets">
   <app-paws-loader></app-paws-loader>
 </ng-container>
 
 
-<ng-container *ngIf="pets">
-
-  <div class="card-container" >
-  
-      <div class="card" *ngFor="let pet of pets.favorites">
+<ng-container >
+ 
+ 
+  <ng-container  *ngIf="favoritePets && favoritePets.length > 0 ">
+    
+    <div class="card-container">
+      <div class="card" *ngFor="let pet of favoritePets">
+        
         <div class="image-container">
-          <img src={{pet.image}}>
+          <img src="{{ pet.image }}" />
           <div class="overlay">
-            <a routerLink="/pets/{{pet._id}}">View Details</a>
+            <a routerLink="/pets/{{ pet._id }}">View Details</a>
           </div>
         </div>
         <div class="card-info">
           <h3></h3>
-          <p>Breed:  <span class="variable">{{pet.breed}}</span></p>
-          <p>Name:  <span class="variable">{{pet.name}}</span></p>
-          <p>Location:  <span class="variable">{{pet.location}}</span></p>
+          <p>
+            Breed: <span class="variable">{{ pet.breed }}</span>
+          </p>
+          <p>
+            Name: <span class="variable">{{ pet.name }}</span>
+          </p>
+          <p>
+            Location: <span class="variable">{{ pet.location }}</span>
+          </p>
         </div>
+        <button class="button" (click)="removeFromFavorites(pet._id)">
+          Remove from favorites
+        </button>
       </div>
-      
     </div>
   </ng-container>
+  <ng-container *ngIf="favoritePets && favoritePets.length == 0 " >
+    <div class="no-favorites">
+    <h2>Your favorite list is empty</h2>
+  </div>
+  </ng-container>
+  
+</ng-container>
+
 
 

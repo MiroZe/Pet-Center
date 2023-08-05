@@ -1,10 +1,4 @@
-.filter-buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
+
   
   
   .card-container {
@@ -13,7 +7,8 @@
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-left: 15px
+    margin-left: 15px;
+    margin-top:25px
   }
   
   .card {
@@ -121,8 +116,31 @@
     .card-info .variable {
       color: #01579b; /* or any color you prefer */
     }
-    /* .all {
-      background-color: rgb(9, 105, 73);
-      color:white
+
+    .button {
+      background-color: #f44336;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 46px
+    }
+    
+    .button:hover {
+      background-color: #d32f2f;
+    }
+
+    h2 {
+      color: #01579b;
+      font-size: 36px;
+    }
+    .no-favorites{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200px;
       
-    } */
+      
+    }
+  

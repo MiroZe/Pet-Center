@@ -62,7 +62,7 @@ function editPet(req,res,next) {
     .then(petData => res.status(200).json(petData)).catch(next)
 }
 
-function aggPetToFavorite(req,res,next) {
+function addPetToFavorite(req,res,next) {
     const { petId } = req.body;
     const { _id: userId } = req.user;
 
@@ -109,9 +109,17 @@ function searchPets(req,res,next) {
 
 }
 
-// Crypto.find()
-//                                         .where({name: { $regex: new RegExp(nameQuery, 'i') }})
-//                                         .where({paymentMethod: { $regex: new RegExp(paymentMethod) }})
+function removePetFromFavorite(req,res,next) {
+    const { petId } = req.body;
+    const { _id: userId } = req.user;
+
+    userModel.findByIdAndUpdate(userId, {$pull: {favorites: petId}}, { new: true })
+    .then(userData => {
+        
+        res.status(200).json(userData)}).catch(next)
+}
+
+                                      
 
 
 module.exports = {
@@ -120,9 +128,10 @@ module.exports = {
     createPet,
     deletePet,
     editPet,
-    aggPetToFavorite,
+    addPetToFavorite,
     getMyPets,
     getMyFavoritePets,
-    searchPets
+    searchPets,
+    removePetFromFavorite
     
 }

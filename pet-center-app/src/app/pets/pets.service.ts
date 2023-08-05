@@ -94,9 +94,7 @@ getMyPets$(): Observable<IPet[]> {
   return this.http.get<IPet[]>('/api/pets/myPets');
 }
 
-getMyFavorites$(){
-  return this.http.get('/api/pets/my-favorites')
-}
+
 
 
 searchPets$(query:string,type:string) : Observable<IPet[]> {
@@ -104,8 +102,6 @@ searchPets$(query:string,type:string) : Observable<IPet[]> {
 }
 
 
+
 }
 
-// const url = `/api/pets/search?searchText=${encodeURIComponent(
-//   searchText
-//   )}&type=${encodeURIComponent(type)}

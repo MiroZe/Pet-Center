@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, catchError, map, tap } from 'rxjs';
-import { IUser } from '../interfaces/user';
-import { IPet } from '../interfaces/pet';
+import { IUser, IUserA } from '../interfaces/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class AuthService {
 
 
   private user$$ = new BehaviorSubject<IUser | undefined>(undefined);
-  user$ = this.user$$.asObservable();
+  user$  = this.user$$.asObservable();
   isUserLoggedIn$ = this.user$.pipe(map(user => !!user))
 
   constructor(private http: HttpClient) { }
@@ -56,16 +56,26 @@ export class AuthService {
     .pipe(tap(user => this.user$$.next(user)))
   }
 
+  getMyFavorites$() : Observable<IUserA>{
+    return this.http.get<IUserA>('/api/pets/my-favorites')
+  }
 
 
   
 addPetToFavorites$(petId: string)  {
 
-  return this.http.patch('/api/pets/my-favorites',{petId}, {withCredentials:true} ).pipe(tap(user => {
+  return this.http.patch('/api/pets/my-favorites/add',{petId}, {withCredentials:true} ).pipe(tap(user => {
     this.user$$.next(user as IUser)
   }))
   
   }
+
+  removeFromFavorites(petId: string) {
+    return this.http.patch('/api/pets/my-favorites/remove',{petId}, {withCredentials:true} ).pipe(tap(user => {
+      this.user$$.next(user as IUser)
+    }))
+  }
+  
 
   // getMyFavorites$() :Observable<IPet[]>{
   //   //return this.http.get<IPet[]>('/api/pets/my-pets', {withCredentials:true})

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 
 import { PetsService } from '../pets.service';
+import { switchMap } from 'rxjs';
+
+
 
 
 @Component({
@@ -11,16 +14,35 @@ import { PetsService } from '../pets.service';
 })
 export class MyFavoritesComponent implements OnInit{
  
+ 
 
 
-   pets! : any
-   constructor(private petService: PetsService){}
+  favoritePets: any
+  isLoaded :boolean = false
+   
+   constructor(private petService: PetsService, private authService: AuthService){}
    ngOnInit(): void {
-    this.petService.getMyFavorites$()
-    .subscribe((pets ) => {
-      this.pets = pets
-     
-      
-    })
+    this.authService.user$.pipe(
+      switchMap(user => 
+        this.authService.getMyFavorites$() 
+
+      )
+    ).subscribe(user => {
+      //this.isLoaded = true
+      this.favoritePets = user.favorites
+    
+    });
+
+    
+   }
+
+
+   removeFromFavorites(id: string) {
+    
+
+    this.authService.removeFromFavorites(id).subscribe()
+
    }
 }
+
+
