@@ -1,0 +1,45 @@
+<div class="search-container">
+  <img src="/assets/search.png" alt="Search Image">
+  <h2>Please set your search criteria</h2>
+    <div class="search-input">
+      <input type="text" placeholder="Search pets by" name="search" #search>
+      <select #term>
+       
+        <option value="breed">Breed</option>
+        <option value="location">Location</option>
+      </select>
+      
+      <button  (click)="searchPets(search.value, term.value)">Search</button>
+    </div>
+
+    <ng-container *ngIf="!pets && isClicked">
+
+     <app-dog-loader></app-dog-loader>
+    </ng-container>
+    <ng-container *ngIf="pets && pets.length>0">
+      
+
+  
+    
+        <div class="card-container" >
+        
+          <div class="card" *ngFor="let pet of pets">
+            <div class="image-container">
+              <img src={{pet.image}}>
+              <div class="overlay">
+                <a routerLink="/pets/{{pet._id}}">View Details</a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>{{pet.type | uppercase}}</h3>
+              <p>Breed:  <span class="variable">{{pet.breed}}</span></p>
+              <p>Name:  <span class="variable">{{pet.name}}</span></p>
+              <p>Location:  <span class="variable">{{pet.location}}</span></p>
+            </div>
+          </div>
+          
+        </div>
+      </ng-container>
+      <ng-container *ngIf="pets && pets.length ==0">
+        <h2>There are no matches for your given criteria! </h2>
+      </ng-container>

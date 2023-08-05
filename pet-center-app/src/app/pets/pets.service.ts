@@ -99,4 +99,13 @@ getMyFavorites$(){
 }
 
 
+searchPets$(query:string,type:string) : Observable<IPet[]> {
+  return this.http.get<IPet[]>(`/api/pets/search?search=${query}&type=${type}`)
 }
+
+
+}
+
+// const url = `/api/pets/search?searchText=${encodeURIComponent(
+//   searchText
+//   )}&type=${encodeURIComponent(type)}

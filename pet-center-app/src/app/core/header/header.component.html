@@ -24,9 +24,9 @@
           <a mat-button routerLink="/pets/new-pet">Add Pet</a>
           <a mat-button routerLink="/pets/my-pets">My Pets</a>
           <a mat-button routerLink="/pets/my-favorites">My Favorites</a>
+          <a mat-button routerLink="/pets/search">Search</a>
           <a mat-button routerLink="/auth/logout">Logout</a>
         </ng-container>
-        <a mat-button routerLink="/contact">Feedback</a>
       </div>
     </div>
     <div *ngIf="!!message" [ngClass]="{'error-message': hasMessage, 'success-message':!hasMessage }" >{{message}}</div>

@@ -12,6 +12,7 @@ router.get('/', petController.getPets);
 router.post('/create', auth(), petController.createPet);
 router.get('/my-favorites', auth(), petController.getMyFavoritePets);
 router.patch('/my-favorites', auth(), petController.aggPetToFavorite);
+router.get('/search', auth(), petController.searchPets);
 router.get('/myPets', auth(), petController.getMyPets);
 router.get('/:petId', petController.getOnePet);
 router.put('/:petId/edit', auth(), petController.editPet);

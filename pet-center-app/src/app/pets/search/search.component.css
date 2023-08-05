@@ -1,0 +1,200 @@
+.search-container {
+  text-align: center;
+  margin: 20px;
+}
+
+.search-container img {
+  width: 200px;
+  height: 200px;
+}
+
+.search-container h2 {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form input {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+h2 {
+  color: #01579b;
+}
+
+.search-form select {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+}
+input {
+   /* Set the desired width for the input */
+  height: 35px; /* Set the desired height for the input */
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  border-color: #007bff;
+  margin-right: 5px;
+  
+}
+
+select {
+  /* Set the desired width for the input */
+ height: 47px; /* Set the desired height for the input */
+ padding: 5px;
+ font-size: 16px;
+ border-radius: 5px;
+ border-color: #007bff;
+ border: 2px solid #007bff;
+ margin-right: 10px
+ 
+}
+
+button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-right: 2px;
+  height: 46px;
+  width: 104px;
+  border-radius: 5px;
+}
+.mdc-button .mdc-button__label {
+  position: relative;
+  color: white;
+ 
+}
+
+
+  
+  /* Style for pet cards can be added here */
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-left: 15px;
+    margin-top: 20px
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 8px;
+    border: 2px solid #0288d1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Fixed aspect ratio of 1:1 (square) */
+    overflow: hidden;
+  }
+  
+  .image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Make the image fit entirely within the container while preserving aspect ratio */
+    cursor: pointer;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .overlay a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: #03a9f4;
+    transition: background-color 0.3s;
+  }
+  
+  .card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .card:hover .overlay a {
+    background-color: #0288d1;
+  }
+  
+  .card-info {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .card-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 10px;
+    margin: 0;
+    color: #01579b;
+  }
+  
+  .card-info p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .dog {
+    background-color: #01579b;
+  }
+  
+  .cat {
+    background-color: #0288d1;
+  }
+  
+  .card-info .variable {
+    color: #01579b; /* or any color you prefer */
+  }
+  
+  
+    .dog {
+      background-color: #01579b;
+    }
+    .cat {
+      background-color: #0288d1;
+    }
+    
+  
+    .card-info .variable {
+      color: #01579b; /* or any color you prefer */
+    }
+    /* .all {
+      background-color: rgb(9, 105, 73);
+      color:white
+      
+    } */
+  

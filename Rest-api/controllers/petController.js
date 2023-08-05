@@ -1,3 +1,4 @@
+const { query } = require('express');
 const { petModel,userModel } = require('../models');
 ;
 
@@ -88,7 +89,29 @@ function getMyFavoritePets(req,res,next) {
     .catch(next);
 }
 
+function searchPets(req,res,next) {
+ 
+    const query = req.query.search;
+    const type = req.query.type;
 
+
+    if(type === 'breed') {
+
+        petModel.find().where({breed: {$regex:new RegExp(query, 'i')}})
+        .then(pets => {res.status(200).json(pets)}).catch(next)
+                        
+    } else if(type === 'location' ) {
+        petModel.find().where({location: {$regex:new RegExp(query, 'i')}})
+        .then(pets => {res.status(200).json(pets)}).catch(next)
+    }
+
+
+
+}
+
+// Crypto.find()
+//                                         .where({name: { $regex: new RegExp(nameQuery, 'i') }})
+//                                         .where({paymentMethod: { $regex: new RegExp(paymentMethod) }})
 
 
 module.exports = {
@@ -99,6 +122,7 @@ module.exports = {
     editPet,
     aggPetToFavorite,
     getMyPets,
-    getMyFavoritePets
+    getMyFavoritePets,
+    searchPets
     
 }

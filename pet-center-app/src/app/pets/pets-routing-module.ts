@@ -7,11 +7,13 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { PetDetailsComponent } from './pet-details/pet-details.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'new-pet', component: NewPetComponent , canActivate:[AuthGuard]},
   { path: 'my-favorites', component: MyFavoritesComponent , canActivate:[AuthGuard]},
+  { path: 'search', component: SearchComponent , canActivate:[AuthGuard]},
  
   { path: 'my-pets', component: MyPetsComponent , canActivate:[AuthGuard]},
   { path: ':petId', component: PetDetailsComponent , canActivate:[AuthGuard]},
