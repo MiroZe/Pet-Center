@@ -20,6 +20,7 @@
       <p>Owner`s Telephone: <span class="details-description">{{pet.tel}}</span></p>
       <p>Owner`s Email: <span class="details-description">{{pet.email}}</span></p>
       <p>Description: <span class="details-description">{{pet.description}}</span></p>
+      <app-location-calculator *ngIf="!isOwner"  [userLocation]="userLocation" [petLocation]="petLocation"></app-location-calculator>
     </div>
     
   </div>

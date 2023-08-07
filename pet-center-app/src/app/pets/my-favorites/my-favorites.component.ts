@@ -28,7 +28,7 @@ export class MyFavoritesComponent implements OnInit{
 
       )
     ).subscribe(user => {
-      //this.isLoaded = true
+      
       this.favoritePets = user.favorites
     
     });

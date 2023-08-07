@@ -1,0 +1,6 @@
+<div>
+    <button class="calculate-button" (click)="calculateDistance(userLocation ,petLocation)">Calculate distance</button>
+</div>
+<p class="distance-result" *ngIf="distance >= 0" >Your distance from this pet is: <span>{{distance}} km</span></p>
+
+

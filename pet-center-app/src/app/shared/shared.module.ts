@@ -2,19 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PawsLoaderComponent } from './paws-loader/paws-loader.component';
 import { DogLoaderComponent } from './dog-loader/dog-loader.component';
+import { LocationCalculatorComponent } from './location-calculator/location-calculator.component';
 
 
 
 @NgModule({
   declarations: [
     PawsLoaderComponent,
-    DogLoaderComponent
+    DogLoaderComponent,
+    LocationCalculatorComponent
   ],
   imports: [
     CommonModule
   ], exports: [
     PawsLoaderComponent,
-    DogLoaderComponent
+    DogLoaderComponent,
+    LocationCalculatorComponent
   ]
 })
 export class SharedModule { }

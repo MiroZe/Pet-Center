@@ -22,6 +22,8 @@ export class PetDetailsComponent implements OnInit {
   private pet$$  = new BehaviorSubject<IPet | undefined>(undefined);
   pet$ = this.pet$$.asObservable();
   isAlreadySave:boolean | undefined ;
+  userLocation!: string |undefined
+  petLocation! : string;
   
   
   constructor(
@@ -36,6 +38,9 @@ export class PetDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.authService.user$.subscribe((user) => (this.currentUser = user));
+    this.userLocation = this.currentUser?.location
+    
+    
     
     
     
@@ -51,6 +56,9 @@ export class PetDetailsComponent implements OnInit {
       })
     ).subscribe((currentPet)=> {
       this.pet$$.next(currentPet)
+      
+      this.petLocation = currentPet.location
+      
       this.pet = currentPet;
       this.isOwner = currentPet.owner._id === this.currentUser?._id;
     })

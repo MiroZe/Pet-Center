@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, EMPTY, Observable, catchError, map, tap } from 'rxjs';
-import { IUser, IUserA } from '../interfaces/user';
+import { IUser } from '../interfaces/user';
 
 
 @Injectable({
@@ -56,8 +56,8 @@ export class AuthService {
     .pipe(tap(user => this.user$$.next(user)))
   }
 
-  getMyFavorites$() : Observable<IUserA>{
-    return this.http.get<IUserA>('/api/pets/my-favorites')
+  getMyFavorites$() : Observable<IUser>{
+    return this.http.get<IUser>('/api/pets/my-favorites')
   }
 
 
