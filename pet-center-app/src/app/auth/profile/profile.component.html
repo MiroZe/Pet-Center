@@ -1,0 +1,95 @@
+<div class="container">
+<ng-container *ngIf="!isInEditMode">
+    <div class="profile-card">
+        <div class="profile-info">
+          <img src="/assets/profile.png" alt="Profile Picture" class="profile-picture">
+          <ng-container *ngIf="(currentUser$ | async) as user">
+            <h2>{{user.username}}</h2>
+           
+            <p>Email: {{user.email}}</p>
+            <p>Location: {{user.location}}</p>
+            <p>Tel: {{user?.tel}}</p>
+          </ng-container>
+          
+          
+        </div>
+      
+        <div class="profile-actions">       
+            <button routerLink="/"  class="cancel-btn">Back</button>
+            <button  class="edit-btn"(click)="onEditClick()">Edit</button>
+        </div>
+      </div>
+
+</ng-container>
+
+
+
+
+  <!-- ==================================form====== -->
+
+<ng-container *ngIf="isInEditMode">
+
+  <form class="profile-form" [formGroup]="profileForm" (ngSubmit)="editHandler()">
+    <h2>Edit your profile</h2>
+    <div class="input-container">
+      <i class="material-icons">person</i>
+      <input type="text" placeholder="Username" name="username" formControlName="username"  />
+    </div>
+
+    <ng-container *ngIf="profileForm.get('username')?.touched" class="error" >
+      <p *ngIf="profileForm.get('username')?.errors?.['required'] "class="error">
+        Username is required!
+    </p>
+
+    <p *ngIf="profileForm.get('username')?.errors?.['minlength'] "class="error">
+      Username should be 5 chatacters at least!
+  </p>
+    </ng-container>
+   
+    <div class="input-container">
+      <i class="material-icons">mail</i>
+      <input type="email" placeholder="Email" name="email" formControlName="email"  />
+    </div>
+    <ng-container *ngIf="profileForm.get('email')?.touched"class="error">
+      <p *ngIf="profileForm.get('email')?.errors?.['required'] "class="error">
+        Email is required!
+    </p>
+    <p *ngIf="profileForm.get('email')?.errors?.['email'] "class="error">
+      Invalid email!
+  </p>
+    </ng-container>
+   
+    <div class="input-container">
+      <i class="material-icons">call</i>
+      <input type="number" placeholder="tel"  name="tel" formControlName="tel"/>
+    </div>
+    <div class="input-container">
+      <i class="material-icons">pin_drop</i>
+      <input type="text" placeholder="Location" name="location" formControlName="location"  />
+    </div>
+    <ng-container *ngIf="profileForm.get('location')?.touched"class="error">
+      <p *ngIf="profileForm.get('location')?.errors?.['required'] "class="error">
+        Location is required!
+    </p>
+    <p *ngIf="profileForm.get('location')?.errors?.['minlength'] "class="error">
+      Location should be 3 characters long at least!
+  </p>
+
+    <p *ngIf="profileForm.get('location')?.errors?.['minlength'] "class="error">
+      Location should be 5 chatacters at least!
+  </p>
+    </ng-container>
+
+
+<div class="profile-actions">
+
+    <button class="cancel-btn" (click)="onCancelClick()">Cancel</button>
+    <button class="edit-btn" [disabled]="profileForm.invalid">Save</button>
+</div>
+   
+   
+  </form>
+</ng-container>
+
+</div>
+  

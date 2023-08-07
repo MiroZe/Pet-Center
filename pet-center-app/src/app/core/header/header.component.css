@@ -74,3 +74,8 @@
     font-weight: bold;
     font-size: 18px;
   }
+
+  .active-link {
+    cursor: pointer;
+    text-decoration: underline;
+  }

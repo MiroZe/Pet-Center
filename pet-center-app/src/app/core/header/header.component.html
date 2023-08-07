@@ -7,7 +7,10 @@
         </div>
       </div>
       <div>
-        <p>Welcome to Pet Center, dear <span class="welcome">{{ user? user.username : 'Guest' }}</span></p>
+        <p>Welcome to Pet Center, dear
+           <span *ngIf="user" class="welcome active-link" routerLink="/auth/profile">{{user.username}}</span>
+           <span  *ngIf="!user" class="welcome">Guest</span>
+          </p>
       </div>
       <div class="menu-container">
         

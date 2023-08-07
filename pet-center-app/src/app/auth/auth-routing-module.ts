@@ -4,10 +4,12 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { UnAuthGuard } from '../core/guards/un-auth-guard.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent , canActivate:[UnAuthGuard]},
   { path: 'register', component: RegisterComponent, canActivate:[UnAuthGuard] },
+  { path: 'profile', component: ProfileComponent },
   { path: 'logout', component: LogoutComponent },
 ];
 

@@ -6,10 +6,11 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthRoutingModule } from './auth-routing-module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, LogoutComponent],
+  declarations: [LoginComponent, RegisterComponent, LogoutComponent, ProfileComponent],
   imports: [CommonModule, RouterModule, ReactiveFormsModule],
   
   exports: [
