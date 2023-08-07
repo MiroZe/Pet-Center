@@ -22,8 +22,8 @@ Description: My Pet Center is a web application that provides a place to help yo
   - There are 3 buttons that give possibility to user or guest to filter or not all ads by the type of pet.
 - Details page shows all information about the current pet`s ad.
   - If the logged-in user is the owner of the ad, he will see 2 buttons: "Edit" and "Delete."
-    - Edit button the user can edit pet`s detail.
-    - Delete button delete current add.
+    - The "Edit" button allows the user to edit the details of their own ad.
+    - The "Delete" button delete current add.
   - If the logged-in user is not the owner of the ad, he will see 2 buttons: "Add to favorite list" and "Calculate distance".
     - "Add to favorite list button save current pet`s ad to My favorite Page.When is already saved the button is replaced with message .
     - "Calculate distance" calculates the distance between the logged in user location and the pet`s location.
