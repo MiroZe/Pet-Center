@@ -58,8 +58,13 @@ Signs up user and returns the registered data as json.
 ```
 
 Required:
+```username``` : [string] -- Teh username of the person is required.
 
 ```email``` : [string] -- The email of the person is required and must be unique;
+
+```location``` : [string] -- The username of the person is required.
+
+
 
 ```username``` : [string] -- The username of the person is required and must be unique, also there is a minimum length of 5 chars, allowed are latin letters and numbers;
 
@@ -128,11 +133,11 @@ Content:
 {
     
     "_id": "5f1875690916010017964978",
-    "name": "John Doe",
+    "username": "John Doe",
     "email": "john@email.com",
-    "username": "Johny",
-    "created_at": "2020-10-14T08:04:12.196Z",
-    "updatedAt": "2020-10-14T08:58:53.589Z"
+    "location": "Sofia",
+    "tel?" :1111
+   
 }
 ```
 
