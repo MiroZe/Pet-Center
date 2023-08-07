@@ -52,7 +52,8 @@ export class ProfileComponent implements OnInit {
   editHandler() {
     if(this.profileForm.invalid) { return};
     const{username, email, location, tel} = this.profileForm.value;
-    console.log(this.profileForm.value);
+    this.authService.updateUser$(username!, email!, location!, tel || undefined)
+    .subscribe()
     
     
     

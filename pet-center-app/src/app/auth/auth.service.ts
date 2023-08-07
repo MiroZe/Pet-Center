@@ -81,6 +81,11 @@ addPetToFavorites$(petId: string)  {
   //   //return this.http.get<IPet[]>('/api/pets/my-pets', {withCredentials:true})
   // }
 
+  updateUser$(username:string, email:string,location:string, tel?: string) {
+    return this.http.put<IUser>('/api/users/profile', {username,email,location,tel}).pipe((tap(user=> {
+      this.user$$.next(user)
+    })))
+  }
  
 
 }
