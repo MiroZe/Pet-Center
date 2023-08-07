@@ -18,7 +18,7 @@ Description: My Pet Center is a web application that provides a place to help yo
 ## Features and Functionality
 - Guest users have access to Home Page, Dashboard Page, Register Page, Login Page
 - Logged in users have access to Home Page,User Profile Page, Dashboard Page, Pet Details Page, My Pets Page, My favorites Pets Page, Search Page , Login Page.
-- Dashboard page is a list with all listed pets from all users.
+- Dashboard page is a list with all published pets from all users.
   - There are 3 buttons that give possibility to user or guest to filter or not all ads by the type of pet.
 - Details page shows all information about the current pet`s ad.
   - If the logged-in user is the owner of the ad, he will see 2 buttons: "Edit" and "Delete."
