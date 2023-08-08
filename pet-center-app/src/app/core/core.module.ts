@@ -6,6 +6,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule
   ],
   exports: [HeaderComponent,AboutComponent,NoPageFoundComponent, FooterComponent]
 })
