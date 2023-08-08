@@ -53,7 +53,8 @@ export class ProfileComponent implements OnInit {
     if(this.profileForm.invalid) { return};
     const{username, email, location, tel} = this.profileForm.value;
     this.authService.updateUser$(username!, email!, location!, tel || undefined)
-    .subscribe()
+    .subscribe();
+    this.toggle()
     
     
     
