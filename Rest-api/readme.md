@@ -53,15 +53,18 @@ Signs up user and returns the registered data as json.
     "email":"john@email.com",
     "username":"Johny",
     "password":"12345",
-    "rePassword":"12345"
+    "rePassword":"12345",
+    "location" : "Sofia",
+    "tel": "12345"
 }
 ```
 
 Required:
+```username``` : [string] -- Teh username of the person is required.
 
 ```email``` : [string] -- The email of the person is required and must be unique;
 
-```username``` : [string] -- The username of the person is required and must be unique, also there is a minimum length of 5 chars, allowed are latin letters and numbers;
+```location``` : [string] -- The username of the person is required.
 
 ```password``` : [string] -- The password of the person is required and must be unique, also there is a minimum length of 5 chars, allowed are latin letters and numbers;
 
@@ -76,7 +79,7 @@ Code: 200
 Content: 
 ``` 
 {
-    "pets": [],
+    
     "favorites": [],
     "_id": "5f1875690916010017964978",
     "name": "John Doe",
@@ -108,7 +111,7 @@ Signs in user and returns the registered data as json.
 
 ```
 {
-    "username":"Johny",
+    "email":"johny@mail.com",
     "password":"12345"
 }
 ```
@@ -128,11 +131,11 @@ Content:
 {
     
     "_id": "5f1875690916010017964978",
-    "name": "John Doe",
+    "username": "John Doe",
     "email": "john@email.com",
-    "username": "Johny",
-    "created_at": "2020-10-14T08:04:12.196Z",
-    "updatedAt": "2020-10-14T08:58:53.589Z"
+    "location": "Sofia",
+    "tel?" :1111
+   
 }
 ```
 
@@ -391,17 +394,8 @@ Content:
 .post /profile - post user info
 .put /profile - edit user info
 
-themes
-.get /themes - lists all themes
-.post /themes - create new theme only for registered users
 
-posts:
-.get themes/id - get all posts for theme
-.post themes/id - create post in theme by id only for registered users
-.put themes/id/posts/id - edit post only possible for author
-.delete themes/id/posts/id - delete post only possible for author -->
 
 
 <!-- http://localhost:3000/api/users/register --  {"name":"SomeName","email":"some@email.com","username":"someUsername","password":"12345","rePassword":"12345"} -->
-<!--http://localhost:3000/api/themes -- {"themeName":"Some Theme", "userId":"5f85bf709a517d36f4abe656", "post": "Some Post" } -->
-<!-- http://localhost:3000/api/themes/5f858dd2d895ad23602db9d4  -- {"userId":"5f8580d25d1da62568dd38fd", "postText": "Some Post textsdfasdf" } -->
+
