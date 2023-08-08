@@ -121,8 +121,16 @@
   .card-info .variable {
     color: #01579b; /* or any color you prefer */
   }
-  /* .all {
-    background-color: rgb(9, 105, 73);
-    color:white
+  
+  h2{
     
-  } */
+    color: #01579b;
+    font-size: 36px;
+  }
+
+  .no-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }

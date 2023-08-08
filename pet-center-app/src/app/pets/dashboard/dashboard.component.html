@@ -5,7 +5,7 @@
   <app-paws-loader></app-paws-loader>
 </ng-container>
 
-  <ng-container *ngIf="pets">
+  <ng-container *ngIf="pets && pets.length > 0">
 
   
   <div class="filter-buttons">
@@ -33,6 +33,13 @@
       </div>
       
     </div>
+  </ng-container>
+  <ng-container *ngIf="pets && pets.length === 0">
+     <div class="no-content">
+
+       <h2>No ads yet. Be the first!</h2>
+
+     </div>
   </ng-container>
 
   

@@ -11,7 +11,7 @@
     
     <div class="pet-info">
       <button mat-button class="back" routerLink="/pets/dashboard">Back</button>
-      <h2>Type: <span class="details-description">{{pet.type}}</span></h2>
+      <h2>Type: <span class="details-description">{{pet.type | uppercase}}</span></h2>
       <p>Breed: <span class="details-description">{{pet.breed}}</span></p>
       <p>Name: <span class="details-description">{{pet.name}}</span></p>
       <p>Gender: <span class="details-description">{{pet.gender}}</span></p>
@@ -37,7 +37,7 @@
 <ng-container *ngIf="isInEditMode">
   <div class="container">
   <form class="create-pet-offer-form" [formGroup]="editPetForm" (ngSubmit)="editPetHandler()">
-    <h2>Edit y Pet </h2>
+    <h2>Edit your Pet </h2>
     <div class="input-container">
       <i class="material-icons">pets</i>
       <select name="type" formControlName="type">
@@ -177,8 +177,8 @@
 </p>
     </ng-container> 
     <div class="button-container">
-      <button  (click)="toggle()">Cancel</button>
-      <button [disabled]="editPetForm.invalid" >Edit</button>
+      <button class="delete-button" (click)="toggle()">Cancel</button>
+      <button class="edit-button" [disabled]="editPetForm.invalid" >Edit</button>
   </div>
   </form>
 </div>
