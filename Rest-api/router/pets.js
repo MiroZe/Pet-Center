@@ -17,6 +17,7 @@ router.get('/search', auth(), petController.searchPets);
 router.get('/myPets', auth(), petController.getMyPets);
 router.get('/:petId', petController.getOnePet);
 router.put('/:petId/edit', auth(), petController.editPet);
+router.delete('/:petId/delete', auth(), petController.deletePet);
 
 
 

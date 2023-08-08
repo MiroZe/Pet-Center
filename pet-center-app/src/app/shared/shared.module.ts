@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { PawsLoaderComponent } from './paws-loader/paws-loader.component';
 import { DogLoaderComponent } from './dog-loader/dog-loader.component';
 import { LocationCalculatorComponent } from './location-calculator/location-calculator.component';
+import { ConfirmationComponent } from './confirmation/confirmation.component';
+import { MaterialModule } from '../app.module';
+
 
 
 
@@ -10,10 +13,15 @@ import { LocationCalculatorComponent } from './location-calculator/location-calc
   declarations: [
     PawsLoaderComponent,
     DogLoaderComponent,
-    LocationCalculatorComponent
+    LocationCalculatorComponent,
+    ConfirmationComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
+    
+    
+    
   ], exports: [
     PawsLoaderComponent,
     DogLoaderComponent,

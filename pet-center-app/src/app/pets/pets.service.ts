@@ -86,7 +86,7 @@ export class PetsService {
 
 
 deletePet$(petId:string) {
-  return this.http.delete(`/api/pets/${petId}/delete`, { withCredentials: true })
+  return this.http.delete(`/api/pets/${petId}/delete`)
 
 }
 

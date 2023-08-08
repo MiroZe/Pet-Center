@@ -1,12 +1,13 @@
 import { Component,  OnInit } from '@angular/core';
 import { PetsService } from '../pets.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { BehaviorSubject, switchMap } from 'rxjs';
+import { BehaviorSubject, EMPTY, switchMap } from 'rxjs';
 import { IPet } from 'src/app/interfaces/pet';
 import { IUser } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/auth/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { IMAGE_PATTERN } from 'src/app/constants';
+import { DialogConfirmationService } from 'src/app/shared/dialog-confirmation.service';
 
 @Component({
   selector: 'app-pet-details',
@@ -31,7 +32,8 @@ export class PetDetailsComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private authService: AuthService,
     private fb: FormBuilder,
-    private router:Router
+    private router:Router,
+    private dialogConfirmationService : DialogConfirmationService
    
   ) {}
   
@@ -150,15 +152,24 @@ export class PetDetailsComponent implements OnInit {
     });
   }
 
-  deletePetHandler() {
 
-    this.petService.deletePet$(this.currentPetId).subscribe(()=> {
-      this.router.navigate(['/pets/dashboard'])
-    })
-
+  deleteItem(action: string) {
+    this.dialogConfirmationService.openDialog(action).pipe(
+      switchMap(result => {
+        if (result) {
+          return this.petService.deletePet$(this.currentPetId);
+        } else {
+          return EMPTY; // Връщаме празен Observable, за да не продължаваме към следващата операция
+        }
+      })
+    ).subscribe(() => {
+      
+      
+      this.router.navigate(['/pets/dashboard']);
+    });
   }
 
-
+ 
   addToFavorites() {
    
     this.authService.addPetToFavorites$(this.currentPetId).subscribe( ()=> {

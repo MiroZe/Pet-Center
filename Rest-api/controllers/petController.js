@@ -52,6 +52,7 @@ function createPet(req, res, next) {
 
 function deletePet(req,res,next) {
     const { petId } = req.params
+    
     petModel.findByIdAndDelete(petId).then(pet => res.status(200).json(pet)).catch(next)
 }
 

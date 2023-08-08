@@ -26,7 +26,7 @@
   </div>
   <div class="pet-actions">
     <button class="edit-button" *ngIf="isOwner" (click)="switchToEdit()">Edit</button>
-    <button class="delete-button" *ngIf="isOwner" (click)="deletePetHandler()" >Delete</button>
+    <button class="delete-button" *ngIf="isOwner" (click)="deleteItem('delete')" >Delete</button>
     <button class="add-to-favorite-button" *ngIf="!isOwner && !isAlreadySave" (click)="addToFavorites()" >Add to Favorite</button>
   </div>
   

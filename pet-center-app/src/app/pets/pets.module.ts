@@ -7,8 +7,9 @@ import { MyFavoritesComponent } from './my-favorites/my-favorites.component';
 import { RouterModule } from '@angular/router';
 import { PetsRoutingModule } from './pets-routing-module';
 
+
 import { PetDetailsComponent } from './pet-details/pet-details.component';
-import { MaterialModule } from '../material/material/material.module';
+import { MaterialModule } from '../app.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { MyPetsComponent } from './my-pets/my-pets.component';

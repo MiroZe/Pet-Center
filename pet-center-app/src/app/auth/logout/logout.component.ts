@@ -3,26 +3,27 @@ import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { MessageDispatcherService } from 'src/app/core/message-dispatcher.service';
 import { MessageType } from 'src/app/interfaces/messages';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.css']
+  styleUrls: ['./logout.component.css'],
 })
 export class LogoutComponent {
-
-
-  constructor(private authService : AuthService, private router: Router, private messageDispatcher: MessageDispatcherService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private messageDispatcher: MessageDispatcherService,
+    
+  ) {
 
     this.authService.logout$().subscribe(() => {
-      this.messageDispatcher.notifyForMessage({text: 'You has been successfuly logged out', type:MessageType.Success})
-      this.router.navigate(['/'])
-    } )
-
+      this.messageDispatcher.notifyForMessage({
+        text: 'You has been successfuly logged out',
+        type: MessageType.Success,
+      });
+      this.router.navigate(['/']);
+    });
   }
-
-  
-
-
-
 }

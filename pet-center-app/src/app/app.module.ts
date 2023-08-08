@@ -9,6 +9,7 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { MessageInterceptorProvider } from './interceptors/error-handler.interceptor';
+import { MaterialModule } from './material/material/material.module';
 
 
 
@@ -21,11 +22,14 @@ import { MessageInterceptorProvider } from './interceptors/error-handler.interce
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
     
   
     
   ],
+  exports:[MaterialModule]
+  ,
   providers: [AuthInterceptorProvider, 
     {
       provide: APP_INITIALIZER,
@@ -38,3 +42,5 @@ import { MessageInterceptorProvider } from './interceptors/error-handler.interce
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export { MaterialModule };
+
