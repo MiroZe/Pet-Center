@@ -5,5 +5,6 @@ const { auth } = require('../utils');
 
 router.get('/profile', auth(),authController.getProfileInfo);
 router.put('/profile', auth(),authController.editProfileInfo);
+router.get('/profile/:userId', auth(),authController.getUserProfileInfo);
 
 module.exports = router

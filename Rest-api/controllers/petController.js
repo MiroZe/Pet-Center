@@ -122,6 +122,42 @@ function removePetFromFavorite(req,res,next) {
 
                                       
 
+function sendMessage(req,res,next) {
+    const { _id: userId } = req.user;
+    const {ownerId, text, date} = req.body
+   
+
+    userModel.findByIdAndUpdate(ownerId, {$push: {messages: {username: userId, message:text, postedOn: date }}})
+    .then(userData => {
+        res.status(200).json(userData)}).catch(next)
+    
+}
+
+function getMessages(req,res,next) {
+    const { _id: userId } = req.user;
+    
+   
+
+    userModel.findById(userId).populate('messages.username')
+    .then(userData => {
+        res.status(200).json(userData)}).catch(next)
+    
+}
+
+function deleteMessage(req,res,next) {
+    const {messageId } = req.body;
+    const { _id: userId } = req.user;
+
+    
+
+    userModel.findByIdAndUpdate(userId, {$pull: {messages: {_id: messageId}}}, { new: true })
+    .then(userData => {
+        
+        res.status(200).json(userData)}).catch(next)
+}
+
+                                      
+
 
 module.exports = {
     getPets,
@@ -133,6 +169,10 @@ module.exports = {
     getMyPets,
     getMyFavoritePets,
     searchPets,
-    removePetFromFavorite
+    removePetFromFavorite,
+    sendMessage,
+    getMessages,
+    deleteMessage
     
 }
+

@@ -103,10 +103,19 @@ function editProfileInfo(req, res, next) {
         .catch(next);
 }
 
+function getUserProfileInfo(req,res,next) {
+    const {userId} = req.params;
+    
+    userModel.findById({_id : userId}).then(x => { res.status(200).json(x) })
+    .catch(next);
+
+}
+
 module.exports = {
     login,
     register,
     logout,
     getProfileInfo,
     editProfileInfo,
+    getUserProfileInfo
 }

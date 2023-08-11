@@ -46,6 +46,13 @@ const userSchema = new mongoose.Schema({
     type: ObjectId,
     ref: "Pet"
   }],
+  messages: [
+    {
+      username: { type: ObjectId, ref: 'User', required: true },
+      message: { type: String, required: true },
+      postedOn: {type:String}
+    },
+  ]
 });
 
 userSchema.methods = {
