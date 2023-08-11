@@ -24,14 +24,16 @@ Description: My Pet Center is a web application that provides a place to help yo
   - If the logged-in user is the owner of the ad, he will see 2 buttons: "Edit" and "Delete."
     - The "Edit" button allows the user to edit the details of their own ad.
     - The "Delete" button delete current add.
-  - If the logged-in user is not the owner of the ad, he will see 2 buttons: "Add to favorite list" and "Calculate distance".
+  - If the logged-in user is not the owner of the ad, he will see 3 buttons: "Add to favorite list" , "Calculate distance" and "Send message...".
     - "Add to favorite list button save current pet`s ad to My favorite Page.When it is already saved the button is replaced with message .
+    - "Send message..." button : when user click it, he can send direct message to the owner of the current ad.
     - "Calculate distance" calculates the distance between the logged in user location and the pet`s location.
 - My pets page is list with all user ads.
 - My favorite list shows all saved ads with "Remove from favorite list" functionality.
 - Search Page give option for logged in user to search pets by two criteria: type and location.
 - Add Page adds a new pet ad.
 - Profile page shows detailed info about logged in user with edit data functionality.
+- Message Page is panel , which shows received direct messages from other users with a link to message sender details card with implemented delete function for each message.
 
 ## Requirements
 - Node.js
