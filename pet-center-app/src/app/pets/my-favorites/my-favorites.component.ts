@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 
 import { PetsService } from '../pets.service';
-import { switchMap } from 'rxjs';
+import { Subscription, switchMap } from 'rxjs';
 
 
 
@@ -12,17 +12,19 @@ import { switchMap } from 'rxjs';
   templateUrl: './my-favorites.component.html',
   styleUrls: ['./my-favorites.component.css']
 })
-export class MyFavoritesComponent implements OnInit{
+export class MyFavoritesComponent implements OnInit, OnDestroy{
  
  
 
 
   favoritePets: any
-  isLoaded :boolean = false
+  isLoaded :boolean = false;
+  subsF! : Subscription;
    
    constructor(private petService: PetsService, private authService: AuthService){}
+  
    ngOnInit(): void {
-    this.authService.user$.pipe(
+    this.subsF = this.authService.user$.pipe(
       switchMap(user => 
         this.authService.getMyFavorites$() 
 
@@ -43,6 +45,10 @@ export class MyFavoritesComponent implements OnInit{
     this.authService.removeFromFavorites(id).subscribe()
 
    }
+
+   ngOnDestroy(): void {
+   this.subsF.unsubscribe()
+  }
 }
 
 
