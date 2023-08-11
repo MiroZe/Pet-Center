@@ -1,0 +1,25 @@
+<div class="container">
+    <ng-container *ngIf="user$ | async as user" >
+        <div class="profile-card">
+            <div class="profile-info">
+              <img src="/assets/profile.png" alt="Profile Picture" class="profile-picture">
+              <ng-container>
+                <h2>{{user.username}}</h2>
+               
+                <p>Email: <span class="info-details">{{user.email}}</span></p>
+                <p>Location: <span class="info-details">{{user.location}}</span></p>
+                <p>Tel: <span class="info-details">{{user.tel}}</span></p>
+              </ng-container>
+              
+              
+            </div>
+          
+            <div class="profile-actions">       
+                <button routerLink="/auth/messages"  class="cancel-btn">Back</button>
+                
+            </div>
+          </div>
+    
+    </ng-container>
+</div>
+

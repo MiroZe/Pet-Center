@@ -1,164 +1,179 @@
 
 
 
-  .pet-details-container {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .pet-image img {
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .pet-info {
-    flex: 1; /* Allow the pet-info to grow and take remaining space */
-  }
-  
-  .pet-info h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .pet-info p {
-    font-size: 18px;
-    margin: 5px 0;
-  }
-  
-  .pet-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px; /* Add margin to separate the buttons from the pet-info */
-  }
-  
-  .pet-actions button {
-    padding: 10px 20px;
-   
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+.pet-details-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
 
-  h4 {
-    margin-left: 17px;
-    color: #0288d1;
-  }
+.pet-image img {
+  width: 600px;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pet-info {
+  flex: 1; 
+  padding: 100px;
+  line-height: 36px;
+}
+
+.pet-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.pet-info p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.pet-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px; 
+}
+
+.pet-actions button {
+  padding: 10px 20px;
+ 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+h4 {
+  margin-left: 17px;
+  color: #0288d1;
+}
+
+
+.edit-button {
+  background-color: #28a745; 
+}
+
+.delete-button {
+  background-color: #dc3545; 
+}
+
+
+.add-to-favorite-button {
+  background-color: #17a2b8; 
+}
+
+.details-description {
+ font-size: 21px;
+  color: #0288d1;
+}
+.back {
+  background-color: #0288d1;
+  height: 50px;
+  width: 120px;
+  color: white;
+}
+
+/* ----------------------form */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff
+}
+
+.create-pet-offer-form {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.create-pet-offer-form h2 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #0288d1;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.input-container i {
+  margin-right: 8px;
+  color: #666;
+}
+.input-container input,
+.input-container textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.input-container textarea {
+  resize: vertical;
+}
+
+button {
+  display: block;
   
-  /* You can add more specific styles for different buttons if needed */
-  .edit-button {
-    background-color: #28a745; /* Green color for edit button */
-  }
-  
-  .delete-button {
-    background-color: #dc3545; /* Red color for delete button */
-  }
-  
-  
-  .add-to-favorite-button {
-    background-color: #17a2b8; /* Blue color for add to favorite button */
-  }
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-  .details-description {
-   font-size: 21px;
-    color: #0288d1;
-  }
-  .back {
-    background-color: #0288d1;
-  }
-  
-  /* ----------------------form */
-  .container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff
-  }
+button:hover {
+  background-color: #0056b3;
+}
 
-  .create-pet-offer-form {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: #fff;
-  }
+.button-container {
+  display: flex;
+  justify-content: center;
+}
 
-  .create-pet-offer-form h2 {
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 20px;
-    color: #0288d1;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
-  .input-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 8px;
-  }
+.button-container button {
+  margin-right: 10px;
+}
 
-  .input-container i {
-    margin-right: 8px;
-    color: #666;
-  }
-  .input-container input,
-  .input-container textarea {
-    flex: 1;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 14px;
-  }
-
-  .input-container textarea {
-    resize: vertical;
-  }
-
-  button {
-    display: block;
-    
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  button:hover {
-    background-color: #0056b3;
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .button-container button {
-    margin-right: 10px;
-  }
-
-  p.error {
-    text-align: left;
-    border-radius: 0.3em;
-    color: red;
-    padding-top: 0;
+p.error {
+  text-align: left;
+  border-radius: 0.3em;
+  color: red;
+  padding-top: 0;
 } 
 
 
 ng-invalid {
-  border-right-color: red;
+border-right-color: red;
 } 
 
 .ng-valid {
 border-right-color: rgb(12, 150, 104);
 }
+
+
+.send-message-button {
+background-color: #0288d1
+}
+
+
+
+
+

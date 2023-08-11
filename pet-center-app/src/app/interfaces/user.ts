@@ -8,7 +8,8 @@ export interface IUser {
     email:string;
     username: string;
     location: string,
-    favorites: string 
+    favorites: string;
+    messages: [username:string, text:string, postedOn:string]
     
     
 }

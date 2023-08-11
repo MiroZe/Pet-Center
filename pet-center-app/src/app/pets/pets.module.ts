@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { MyPetsComponent } from './my-pets/my-pets.component';
 import { SearchComponent } from './search/search.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 
@@ -32,7 +33,9 @@ import { SearchComponent } from './search/search.component';
     RouterModule,
     MaterialModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    AuthModule
+    
     
   ], exports: [PetsRoutingModule]
 })

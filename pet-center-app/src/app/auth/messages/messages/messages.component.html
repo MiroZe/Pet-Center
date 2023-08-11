@@ -1,0 +1,23 @@
+<ng-container *ngIf=" !messages"> 
+    <app-paws-loader></app-paws-loader>
+</ng-container>
+
+<ng-container *ngIf=" messages && messages.length >0">
+    
+    <div class="message" *ngFor=" let message of messages">
+        <a routerLink="/auth/messages/{{message.username._id}}">{{message.username.username}}</a>
+        
+        
+        <div class="text">{{message.message}}</div>
+         <div class="posted-on">{{ message.postedOn | date }}</div> 
+        <button   class="delete-button" (click)="onDelete(message._id)" id=[message._id]>Delete</button>
+      </div>
+
+</ng-container>
+<ng-container  *ngIf="messages && messages.length === 0">
+    <div class="no-messages">
+
+        <h2>There are not recieved messages!</h2>
+    </div>
+</ng-container>
+

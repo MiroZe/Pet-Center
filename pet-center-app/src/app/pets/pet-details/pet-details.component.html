@@ -4,10 +4,30 @@
 </ng-container>
 <ng-container *ngIf="(pet$ | async) as pet ">
 <ng-container *ngIf=" !isInEditMode">
+
+  <!--    design inspiration:  https://dribbble.com/shots/2354916-Daily-UI-15-Nike-Cards -->
+
+
+  
+
+
+
    <div class="pet-details-container">
     <div class="pet-image">
       <img src={{pet.image}} alt="Pet Image">
+      <ng-container>
+        <button class="add-to-favorite-button" *ngIf="!isOwner && !isAlreadySave" (click)="addToFavorites()" >Add to Favorite</button>
+        <h4 *ngIf="isAlreadySave">This pet is in your Favorite list</h4>
+      </ng-container>
+      <button class="send-message-button" *ngIf="!isOwner " (click)="enterInMessageMode(true)" >{{!isInMessageMode ? 'Send message to pet`s owner' : 'Hide message form'}}</button>
+
+      <app-message-form  (emitNewMessageModeChange)="enterInMessageMode(false)" [username]="currentUser?.username" [ownerId]="ownerId" *ngIf="!isOwner && isInMessageMode"></app-message-form>
     </div>
+
+    
+    
+    
+    
     
     <div class="pet-info">
       <button mat-button class="back" routerLink="/pets/dashboard">Back</button>
@@ -20,17 +40,23 @@
       <p>Owner`s Telephone: <span class="details-description">{{pet.tel}}</span></p>
       <p>Owner`s Email: <span class="details-description">{{pet.email}}</span></p>
       <p>Description: <span class="details-description">{{pet.description}}</span></p>
-      <app-location-calculator *ngIf="!isOwner"  [userLocation]="userLocation" [petLocation]="petLocation"></app-location-calculator>
+      <app-location-calculator *ngIf="!isOwner" [userLocation]="userLocation" [petLocation]="petLocation"></app-location-calculator>
+      
+  
+      
     </div>
+    
     
   </div>
   <div class="pet-actions">
     <button class="edit-button" *ngIf="isOwner" (click)="switchToEdit()">Edit</button>
     <button class="delete-button" *ngIf="isOwner" (click)="deleteItem('delete')" >Delete</button>
-    <button class="add-to-favorite-button" *ngIf="!isOwner && !isAlreadySave" (click)="addToFavorites()" >Add to Favorite</button>
+   
   </div>
   
-  <h4 *ngIf="isAlreadySave">This pet is in your Favorite list</h4>
+  
+  
+  
 
 </ng-container>
 </ng-container>

@@ -76,16 +76,32 @@ addPetToFavorites$(petId: string)  {
     }))
   }
   
-
-  // getMyFavorites$() :Observable<IPet[]>{
-  //   //return this.http.get<IPet[]>('/api/pets/my-pets', {withCredentials:true})
-  // }
+  
 
   updateUser$(username:string, email:string,location:string, tel?: string) {
     return this.http.put<IUser>('/api/users/profile', {username,email,location,tel}).pipe((tap(user=> {
       this.user$$.next(user)
     })))
   }
+
+  postMessage$(ownerId: string , text: string, date :string){
+    return this.http.post('/api/pets/sendMessage', {ownerId,text,date})
+  }
+
+  getMessages$(){
+    return this.http.get<IUser>('/api/pets/sendMessage')
+  }
+
+  deleteMessage(messageId: string) {
+    return this.http.put('/api/pets/sendMessage', {messageId}).pipe((tap(user=> {
+      this.user$$.next(user as IUser)
+    })))
+  }
+
+  getUser$(userId: string) {
+    return this.http.get<IUser>(`/api/users/profile/${userId}`)
+  }
+  
  
 
 }

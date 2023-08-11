@@ -25,6 +25,8 @@ export class PetDetailsComponent implements OnInit {
   isAlreadySave:boolean | undefined ;
   userLocation!: string |undefined
   petLocation! : string;
+  ownerId! : string
+  isInMessageMode : boolean = false
   
   
   constructor(
@@ -62,6 +64,7 @@ export class PetDetailsComponent implements OnInit {
       this.petLocation = currentPet.location
       
       this.pet = currentPet;
+      this.ownerId = currentPet.owner._id
       this.isOwner = currentPet.owner._id === this.currentUser?._id;
     })
 
@@ -181,6 +184,12 @@ export class PetDetailsComponent implements OnInit {
      
     
   }
+
+
+  enterInMessageMode( value: boolean) {
+    this.isInMessageMode = value
+  }
+
 
 }
 
