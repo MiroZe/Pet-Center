@@ -46,6 +46,6 @@ Anyone interested in collaborating and improving the project can do so by sendin
 My Pet Center is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Contact
-For any questions, comments, or collaboration, you can contact me at the following email address: mıro_sv@yahoo.com.
+For any questions, comments, or collaboration, you can contact me at the following email address: miro_sv@yahoo.com.
 
 I hope this README.md file helps you understand and use  Pet Center more easily . Thank you for your interest and support!
