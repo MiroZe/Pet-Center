@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { PetsService } from '../pets.service';
-import { MessageDispatcherService } from 'src/app/core/message-dispatcher.service';
-import { MessageType } from 'src/app/interfaces/messages';
+
+
 import { IPet } from 'src/app/interfaces/pet';
-import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-search',

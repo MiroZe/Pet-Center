@@ -11,9 +11,6 @@ export function matchPasswordValidator(passValue:string, rePassValue:string) : V
 
         const check = passCtrl?.value === rePassCtrl?.value ? null : {matchPasswordValidator :true}
         
-        
-
-
         return check 
      }
 }

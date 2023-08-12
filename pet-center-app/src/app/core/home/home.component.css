@@ -1,4 +1,4 @@
-/* Center the welcome content horizontally and vertically */
+
 #welcome {
      display: flex;
   justify-content: space-around;
@@ -21,15 +21,15 @@
   
   .welcome-image {
     width: 400px;
-    height: auto; /* Automatically adjust the height to maintain aspect ratio */
-  border-radius: 50%; /* Add rounded corners to the image */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
-  transition: transform 0.3s, box-shadow 0.3s; /* Add a smooth transition effect on hover */
+    height: auto;
+  border-radius: 50%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.3s, box-shadow 0.3s; 
   }
 
   .welcome-image:hover {
-    transform: scale(1.1); /* Zoom in the image on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase the shadow size on hover */
+    transform: scale(1.4); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
   }
   
   .welcome-content h1 {

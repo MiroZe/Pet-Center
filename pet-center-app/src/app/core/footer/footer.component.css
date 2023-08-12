@@ -1,29 +1,25 @@
 .app-footer {
-    background-color: #03a9f4; /* Change the background color as per your design */
-    color: #fff; /* Change the text color to white or as per your design */
+    background-color: #03a9f4; 
+    color: #fff; 
    
-        position: fixed; /* Фиксирано позициониране на футъра */
-        bottom: 0; /* Поставете футъра в долния край на страницата */
+        position: fixed; 
+        bottom: 0; 
         left: 0;
-        width: 100%; /* Задайте ширина на футъра да бъде същата като на viewport */
+        width: 100%;
         
-        padding: 5px; /* Добавете желано вътрешно отстояние на футъра */
+        padding: 5px; 
         z-index: 1;
         border: none;
         margin-bottom: 0px;
         flex-shrink: 0;
         
-      
-   
-    
- 
   }
   
   .footer-content {
     display: flex;
     justify-content: space-between;
-    max-width: 1200px; /* Adjust the maximum width as needed */
-    margin: 0 auto; /* Center the content horizontally */
+    max-width: 1200px; 
+    margin: 0 auto; 
     align-content: center;
     padding-top: 10px;
   }

@@ -34,8 +34,8 @@ h2 {
   border: 1px solid #ccc;
 }
 input {
-   /* Set the desired width for the input */
-  height: 35px; /* Set the desired height for the input */
+   
+  height: 35px; 
   padding: 5px;
   font-size: 16px;
   border-radius: 5px;
@@ -45,8 +45,8 @@ input {
 }
 
 select {
-  /* Set the desired width for the input */
- height: 47px; /* Set the desired height for the input */
+ 
+ height: 47px; 
  padding: 5px;
  font-size: 16px;
  border-radius: 5px;
@@ -75,7 +75,7 @@ button {
 
 
   
-  /* Style for pet cards can be added here */
+  
 
   .card-container {
     display: grid;
@@ -99,7 +99,7 @@ button {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 100%; /* Fixed aspect ratio of 1:1 (square) */
+    padding-bottom: 100%; 
     overflow: hidden;
   }
   
@@ -109,7 +109,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Make the image fit entirely within the container while preserving aspect ratio */
+    object-fit: cover; 
     cursor: pointer;
   }
   
@@ -177,7 +177,7 @@ button {
   }
   
   .card-info .variable {
-    color: #01579b; /* or any color you prefer */
+    color: #01579b; 
   }
   
   
@@ -190,11 +190,7 @@ button {
     
   
     .card-info .variable {
-      color: #01579b; /* or any color you prefer */
+      color: #01579b; 
     }
-    /* .all {
-      background-color: rgb(9, 105, 73);
-      color:white
-      
-    } */
+   
   

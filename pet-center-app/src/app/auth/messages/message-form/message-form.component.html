@@ -1,9 +1,23 @@
 <form class="message-form" [formGroup]="messageForm" (ngSubmit)="sendMessageHandler()">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" formControlName="username"  >
-    
+
+    <ng-container *ngIf="messageForm.get('username')?.touched" class="error" >
+        <p *ngIf="messageForm.get('username')?.errors?.['required'] "class="error">
+          Username is required!
+      </p>
+      <p *ngIf="messageForm.get('username')?.errors?.['minlength'] "class="error">
+        Username is required!
+    </p>
+    </ng-container>
     <label for="message">Message:</label>
     <textarea id="message" name="message" formControlName="message" ></textarea>
+    <ng-container *ngIf="messageForm.get('message')?.touched" class="error" >
+        <p *ngIf="messageForm.get('message')?.errors?.['required'] "class="error">
+          Please, add a message!
+      </p>
+      
+    </ng-container>
     
     <button class="send-button" >Send</button>
   </form>

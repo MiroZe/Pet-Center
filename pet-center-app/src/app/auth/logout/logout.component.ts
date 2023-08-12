@@ -6,7 +6,7 @@ import { MessageType } from 'src/app/interfaces/messages';
 
 import { DialogConfirmationService } from 'src/app/shared/dialog-confirmation.service';
 import { EMPTY, switchMap } from 'rxjs';
-import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-logout',
@@ -32,9 +32,7 @@ export class LogoutComponent {
           return this.authService.logout$()
           
         }else {
-         
-          
-          
+        
           this.router.navigate(['/'])
           return EMPTY
         }

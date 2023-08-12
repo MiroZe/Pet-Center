@@ -28,7 +28,7 @@
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 100%; /* Fixed aspect ratio of 1:1 (square) */
+  padding-bottom: 100%; 
   overflow: hidden;
 }
 
@@ -38,7 +38,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Make the image fit entirely within the container while preserving aspect ratio */
+  object-fit: cover; 
   cursor: pointer;
 }
 
@@ -106,7 +106,7 @@
 }
 
 .card-info .variable {
-  color: #01579b; /* or any color you prefer */
+  color: #01579b; 
 }
 
 
@@ -119,7 +119,7 @@
   
 
   .card-info .variable {
-    color: #01579b; /* or any color you prefer */
+    color: #01579b; 
   }
   
   h2{

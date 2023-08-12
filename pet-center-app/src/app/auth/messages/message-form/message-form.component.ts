@@ -31,7 +31,7 @@ hideMessageMode: boolean = false
 
    
   this.messageForm = this.fb.group({
-    username:  [this.username, [Validators.required]],
+    username:  [this.username, [Validators.required, Validators.minLength(5)]],
     message: ['', [Validators.required ]],
   })
 

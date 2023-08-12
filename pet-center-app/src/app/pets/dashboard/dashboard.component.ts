@@ -1,24 +1,27 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { PetsService } from '../pets.service';
 import { IPet } from 'src/app/interfaces/pet';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit, OnChanges{
+export class DashboardComponent implements OnInit, OnChanges, OnDestroy{
 
   pets!: IPet[]
+  dashS! : Subscription
 
   constructor(private petService: PetsService) {
 
   }
+  
 
   ngOnInit(): void {
     
     
-    this.petService.loadAllPets$().subscribe(pets => this.pets = pets)
+    this.dashS =this.petService.loadAllPets$().subscribe(pets => this.pets = pets)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -31,6 +34,11 @@ export class DashboardComponent implements OnInit, OnChanges{
       (pets)=> this.pets = pets
     )
     
+  }
+
+
+  ngOnDestroy(): void {
+    this.dashS.unsubscribe()
   }
 
 }

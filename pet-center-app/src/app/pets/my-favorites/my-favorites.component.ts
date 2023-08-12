@@ -14,9 +14,6 @@ import { Subscription, switchMap } from 'rxjs';
 })
 export class MyFavoritesComponent implements OnInit, OnDestroy{
  
- 
-
-
   favoritePets: any
   isLoaded :boolean = false;
   subsF! : Subscription;

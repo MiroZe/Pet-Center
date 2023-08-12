@@ -1,7 +1,7 @@
 .pet-center-header {
-    background-color: #03a9f4; /* Change the background color as per your design */
-    color: #fff; /* Change the text color to white or as per your design */
-    height: 80px; /* Increase the header height as needed */
+    background-color: #03a9f4; 
+    color: #fff; 
+    height: 80px; 
   }
   
   .header-content {
@@ -9,31 +9,31 @@
     align-items: center;
     justify-content: space-between;
     padding: 8px 16px;
-    height: 100%; /* Ensure the content takes full height of the header */
+    height: 100%; 
   }
   
   .logo-container img {
-    height: 78px; /* Change the height of the logo as needed */
-    width: auto; /* Maintain aspect ratio */
+    height: 78px;
+    width: auto; 
   }
   
   .menu-container a {
     color: #fff;
     text-decoration: none;
     margin-left: 16px;
-    padding: 8px 16px; /* Add some padding to the buttons for better appearance */
-    border-radius: 4px; /* Round the corners of the buttons */
-    transition: background-color 0.3s, color 0.3s; /* Add a smooth transition effect for hover */
-    cursor: pointer; /* Set the cursor to a pointer on hover */
+    padding: 8px 16px; 
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s; 
+    cursor: pointer; 
   }
   
   .menu-container a:hover {
-    background-color: #0288d1; /* Change the background color of the button on hover */
-    color: #fff; /* Change the text color of the button on hover */
+    background-color: #0288d1;
+    color: #fff;
   }
 
   .logo {
-    width: 0px; /* Adjust the logo width as needed */
+    width: 0px;
     height: auto;
   }
   .logo img:hover{
@@ -46,8 +46,8 @@
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #ff0000; /* Red background for error message */
-    color: #fff; /* White text color */
+    background-color: #ff0000; 
+    color: #fff; 
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 5px;
@@ -61,8 +61,8 @@
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #07b480; /* Red background for error message */
-    color: #fff; /* White text color */
+    background-color: #07b480; 
+    color: #fff; 
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 5px;
