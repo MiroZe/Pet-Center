@@ -1,10 +1,11 @@
 # Pet-Center
 Project: My Pet Center
-
+The project is hosted and you can visit it here : https://ze-pet-center.netlify.app
 Description: My Pet Center is a web application that provides a place to help your beloved pet find their match and make the world more beautiful, better, and fluffier.
             The project is with educational porposes!
 
 ## Installation
+
 1. Clone the project repository to your local machine.
 2. Navigate to the project directory.
 3. Run the command `npm install` to install all dependencies.
