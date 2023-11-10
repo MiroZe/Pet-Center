@@ -17,11 +17,15 @@
 3. Register or log in with an existing account to use the features of My Pet Center.
 
 ## Features and Functionality
+![Home](https://github.com/MiroZe/Pet-Center/assets/114018004/7878d516-5990-4964-a6d5-94b53267a90a)
 - Guest users have access to Home Page, Dashboard Page, Register Page, Login Page
-- ![NAvigation Bar](https://drive.google.com/file/d/1lnn4-jCjDk4ygCsKZV7bgeeYpRUQm8TB/view?usp=drive_link)
+![RegisterForm](https://github.com/MiroZe/Pet-Center/assets/114018004/a00ccd12-aa66-452c-97c1-478fcfdbfdfc)
 - Logged in users have access to Home Page,User Profile Page, Dashboard Page, Pet Details Page, My Pets Page, My favorites Pets Page, Search Page , Login Page.
 
 - Dashboard page is a list with all published pets from all users.
+
+![dashBoard](https://github.com/MiroZe/Pet-Center/assets/114018004/993fa5df-7bad-4e6d-bbaa-cc6bc9f18812)
+
   - There are 3 buttons that give possibility to user or guest to filter or not all ads by the type of pet.
 - Details page shows all information about the current pet`s ad.
   - If the logged-in user is the owner of the ad, he will see 2 buttons: "Edit" and "Delete."
@@ -31,10 +35,15 @@
     - "Add to favorite list button save current pet`s ad to My favorite Page.When it is already saved the button is replaced with message .
     - "Send message..." button : when user click it, he can send direct message to the owner of the current ad.
     - "Calculate distance" calculates the distance between the logged in user location and the pet`s location.
+
+![detailsPage](https://github.com/MiroZe/Pet-Center/assets/114018004/ea38c78f-e0ad-4a07-ae08-6311a772acb8)
 - My pets page is list with all user ads.
 - My favorite list shows all saved ads with "Remove from favorite list" functionality.
-- Search Page give option for logged in user to search pets by two criteria: type and location.
-- Add Page adds a new pet ad.
+- Search Page give option for logged in user to search pets by two criteria: breed and location.
+- ![SearchPage](https://github.com/MiroZe/Pet-Center/assets/114018004/647fadff-6caa-482d-a158-32c1bd67e70a)
+
+- Add Page adds a new pet ad. 
+![newPetForm](https://github.com/MiroZe/Pet-Center/assets/114018004/5839da67-d400-42bc-a28a-877b4a5156a2)
 - Profile page shows detailed info about logged in user with edit data functionality.
 - Message Page is panel , which shows received direct messages from other users with a link to message sender details card with implemented delete function for each message.
 - - No Found Page -  for not correct url links.
