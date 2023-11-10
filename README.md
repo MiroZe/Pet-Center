@@ -18,6 +18,7 @@
 
 ## Features and Functionality
 - Guest users have access to Home Page, Dashboard Page, Register Page, Login Page
+- ![NAvigation Bar](https://drive.google.com/file/d/1lnn4-jCjDk4ygCsKZV7bgeeYpRUQm8TB/view?usp=drive_link)
 - Logged in users have access to Home Page,User Profile Page, Dashboard Page, Pet Details Page, My Pets Page, My favorites Pets Page, Search Page , Login Page.
 
 - Dashboard page is a list with all published pets from all users.
