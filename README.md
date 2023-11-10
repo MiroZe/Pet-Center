@@ -46,7 +46,9 @@
 - ![newPetForm](https://github.com/MiroZe/Pet-Center/assets/114018004/5839da67-d400-42bc-a28a-877b4a5156a2)
 - Profile page shows detailed info about logged in user with edit data functionality.
 - Message Page is panel , which shows received direct messages from other users with a link to message sender details card with implemented delete function for each message.
-- - No Found Page -  for not correct url links.
+- - No Found Page - no need to explain 404 page :).
+  - 
+![404](https://github.com/MiroZe/Pet-Center/assets/114018004/114b1744-3c7e-4999-bab5-1fb9565895bf)
 
 ## Requirements
 - Node.js
